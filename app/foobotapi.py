@@ -3,7 +3,6 @@ import json, os, time
 from settings import *
 
 def POSTRequestSync(url, headers, data):
-# call service with headers and params
   response = requests.post(url, headers=headers, data=data)
   return response
 

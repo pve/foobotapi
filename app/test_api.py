@@ -21,9 +21,16 @@ def test_get ():
     print "content:"+ str(response.text)
     # check data kind of ok.
     assert response.ok
-    # 
+    # assert data in response.text
     
 def test_transform ():
+    data = {
+    "status": ":thumbsup:",
+	"source": "test_api"
+    }
+    # data = 
+    # r = transformdata(string)
+    # assert data == r
     assert True
     
 def test_put ():
