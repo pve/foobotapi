@@ -8,7 +8,7 @@ def POSTRequestSync(url, headers, data):
 
 def consumeGETRequestSync(url, headers):
   response = requests.get(url, headers=headers)
-  return(response.text)
+  return(response)
   
 def transformdata(datain):
   ans = json.loads(datain)
@@ -17,10 +17,11 @@ def transformdata(datain):
   # nu nog de timestamp
   return data
   
-while True:
-  incoming = consumeGETRequestSync(fooboturl, fooheaders)
-  outgoing = transformdata(incoming)
-  response = POSTRequestSync(isurl, isheaders, outgoing)
-  print "IS code:"+ str(response.status_code)
-  # if any of this fails: report to loggly
-  time.sleep(600)
+if __name__ == "__main__":
+  while True:
+    incoming = consumeGETRequestSync(fooboturl, fooheaders)
+    outgoing = transformdata(incoming.text)
+    response = POSTRequestSync(isurl, isheaders, outgoing)  
+    print "IS code:"+ str(response.status_code)
+    # if any of this fails: report to loggly
+    time.sleep(600)
