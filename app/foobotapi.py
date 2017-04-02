@@ -19,9 +19,18 @@ def transformdata(datain):
   
 if __name__ == "__main__":
   while True:
+    t0 = time.time()
     incoming = consumeGETRequestSync(fooboturl, fooheaders)
+    t1 = time.time()
     outgoing = transformdata(incoming.text)
-    response = POSTRequestSync(isurl, isheaders, outgoing)  
-    print "IS code:"+ str(response.status_code)
-    # if any of this fails: report to loggly
+    response = POSTRequestSync(isurl, isheaders, outgoing)
+    t2 = time.time()
+    logglypayload = { 
+      "foobotelapsed" : "%.3f" % (t1 - t0),
+      "foobotstatus" : incoming.status_code,
+      "foobotmessage" : incoming.text[:50],
+      "iselapsed" : "%.3f" % (t2 - t1),
+      "isstatus" : response.status_code,
+      "ismessage" : response.text[:50]}
+    response = POSTRequestSync(logglykey, headers = {}, data=logglypayload)
     time.sleep(600)

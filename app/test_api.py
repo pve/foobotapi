@@ -31,9 +31,17 @@ def test_put ():
     "status": ":thumbsup:",
 	"source": "test_api"
     }
-    response = POSTRequestSync(isurl, isheaders, data)
+    response = POSTRequestSync(isurl, headers=isheaders, data=data)
     assert response.ok
 
 def test_loggly():
-    # put some stuff there
-    assert True
+    payload = {
+    "status": ":thumbsup:",
+	"source": "foobot_test_api"
+    }
+    response = POSTRequestSync(logglykey, headers = {}, data=payload)
+    assert response.ok
+    
+    
+        
+'{:06.2f}'.format(3.141592653589793)
