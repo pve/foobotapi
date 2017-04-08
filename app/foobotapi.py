@@ -25,14 +25,13 @@ if __name__ == "__main__":
     outgoing = transformdata(incoming.text)
     response = POSTRequestSync(isurl, isheaders, outgoing)
     t2 = time.time()
-    logglypayload = { 
+    logglypayloadstring = { 
       "foobotelapsed" : t1 - t0,
-#      "foobotelapsed" : "%.3f" % (t1 - t0),
       "foobotstatus" : incoming.status_code,
-      "foobotmessage" : incoming.text[:50],
       "iselapsed" : t2 - t1,
-#      "foobotelapsed" : "%.3f" % (t1 - t0),
       "isstatus" : response.status_code,
-      "ismessage" : response.text[:50]}
+      "ismessage" : response.text[:50],
+      "foobotmessage" : incoming.text[:50]}
+    logglypayload = json.dumps(logglypayloadstring)
     response = POSTRequestSync(logglykey, headers = {}, data=logglypayload)
     time.sleep(600)
