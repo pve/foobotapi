@@ -1,5 +1,5 @@
 # for use with pytest
-import os, requests
+import os, requests, json
 from settings import *
 from foobotapi import *
 
@@ -37,9 +37,11 @@ def test_put ():
 def test_loggly():
     payload = {
     "status": ":thumbsup:",
-	"source": "foobot_test_api"
+	"source": "foobot_test_api",
+	"number" : 3.141592653589793,
+	"inumber" : 42
     }
-    response = POSTRequestSync(logglykey, headers = {}, data=payload)
+    response = POSTRequestSync(logglykey, headers = {}, data=json.dumps(payload))
     assert response.ok
     
     

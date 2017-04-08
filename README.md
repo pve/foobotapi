@@ -1,5 +1,8 @@
 # foobotapi
-Map [Foobot](http://foobot.io) data to [InitialState](http://initialstate.com).
+Foobot is an indoor air pollution sensor device.
+InitialState is a dashboard for IOT.
+
+This code will map [Foobot](http://foobot.io) data to [InitialState](http://initialstate.com).
 You will need accounts on both.
 
 API keys are in environment variables.
