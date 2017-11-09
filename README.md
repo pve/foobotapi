@@ -1,9 +1,10 @@
 # foobotapi
 Foobot is an indoor air pollution sensor device.
 InitialState is a dashboard for IOT.
+Xively is a dashboad for IOT
 
-This code will map [Foobot](http://foobot.io) data to [InitialState](http://initialstate.com).
-You will need accounts on both.
+This code will map [Foobot](http://foobot.io) data to [InitialState](http://initialstate.com) and to Xively.
+You will need accounts on all.
 
 API keys are in environment variables.
 Use settings.env to source these.

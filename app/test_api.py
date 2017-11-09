@@ -1,5 +1,5 @@
 # for use with pytest
-import os, requests, json
+import os, requests, json, datetime
 from settings import *
 from foobotapi import *
 
@@ -20,19 +20,15 @@ def test_get ():
     assert "datapoints" in response.text
     assert "sensors" in response.text
     
-def test_transform ():
-    x = u'{"uuid":"2701466D278044A0","start":1490861042,"end":1490861042,"sensors":["time","pm","tmp","hum","co2","voc","allpollu"],"units":["s","ugm3","C","pc","ppm","ppb","%"],"datapoints":[[1490861042,6.8000183,18.255,54.493,1062,293,30.800018]]}'
-    y = {u'tmp': 18.255, u'co2': 1062, u'voc': 293, u'hum': 54.493, u'allpollu': 30.800018, u'time': 1490861042, u'pm': 6.8000183}
-    r = transformdata(x)
-    assert y == r
-
 def test_put ():
     data = {
     "status": ":thumbsup:",
-	"source": "test_api"
+	"source": "test_api",
+	"epoch": 1413917402
     }
     response = POSTRequestSync(isurl, headers=isheaders, data=data)
     assert response.ok
+#http://docs.initialstateeventsapi.apiary.io/#reference/event-data/events-json
 
 def test_loggly():
     payload = {
@@ -44,6 +40,23 @@ def test_loggly():
     response = POSTRequestSync(logglykey, headers = {}, data=json.dumps(payload))
     assert response.ok
     
-    
+def test_date():
+    assert datetime.datetime.fromtimestamp(1413917402).isoformat()=='2014-10-21T18:50:02'
         
 '{:06.2f}'.format(3.141592653589793)
+
+def test_xively():
+    payload = {
+        "datastreams": [
+            {
+               "id": "pm",
+               "current_value": 3
+            },
+            {
+                "id": "co2",
+                "current_value": 100
+            }]
+    }
+    response = requests.put(xivelyurl, headers = xivheaders, data=json.dumps(payload))
+    print(response.text, response.status_code)
+    assert response.ok    
