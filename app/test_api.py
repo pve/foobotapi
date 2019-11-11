@@ -8,18 +8,18 @@ def test_env ():
     assert foobotkey != 'novalidkey'
     assert isurl.startswith("https://")
     assert isbucketkey != 'novalidkey'
-    
+
 def test_get ():
     response = consumeGETRequestSync(fooboturl, headers=fooheaders)
-    print "code:"+ str(response.status_code)
-    print "******************"
-    print "headers:"+ str(response.headers)
-    print "******************"
-    print "content:"+ str(response.text)
+    print("code:"+ str(response.status_code))
+    print ("******************")
+    print ("headers:"+ str(response.headers))
+    print ("******************")
+    print ("content:"+ str(response.text))
     assert response.ok
     assert "datapoints" in response.text
     assert "sensors" in response.text
-    
+
 def test_put ():
     data = {
     "status": ":thumbsup:",
@@ -39,10 +39,10 @@ def test_loggly():
     }
     response = POSTRequestSync(logglykey, headers = {}, data=json.dumps(payload))
     assert response.ok
-    
+
 def test_date():
     assert datetime.datetime.fromtimestamp(1413917402).isoformat()=='2014-10-21T18:50:02'
-        
+
 '{:06.2f}'.format(3.141592653589793)
 
 def test_xively():
@@ -59,4 +59,4 @@ def test_xively():
     }
     response = requests.put(xivelyurl, headers = xivheaders, data=json.dumps(payload))
     print(response.text, response.status_code)
-    assert response.ok    
+    assert response.ok
