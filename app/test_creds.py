@@ -1,5 +1,7 @@
 from credsfromfile import *
-
+# test if the required parameters are actually in the sample secrets file
+#https://github.com/GoogleCloudPlatform/storage-file-transfer-json-python/blob/master/client_secrets.json
+# split in unit test and integration test
 def test_file():
     getit = download_blob("imp-iot-project.appspot.com", "file")
     assert getit == b"aap noot mies\n"
@@ -11,7 +13,6 @@ def test_getsecrets():
     res = getsecrets("imp-iot-project.appspot.com", "file")
     assert res == "whatever"
 
-#https://github.com/GoogleCloudPlatform/storage-file-transfer-json-python/blob/master/client_secrets.json
 gcpexample = """
 {
   "installed": {

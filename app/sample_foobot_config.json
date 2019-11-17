@@ -1,0 +1,14 @@
+{ "dataset_id": "impsensor",
+  "table_id": "sensordata"
+}
+# Initialstate
+export isurl=https://groker.initialstate.com/api/events
+export isaccesskey=
+export isbucketkey=
+
+# Foobot
+export fooboturl=https://api-eu-west-1.foobot.io/v2/device/2701466D278044A0/datapoint/0/last/0/
+export foobotkey=
+
+# Loggly
+export logglykey=

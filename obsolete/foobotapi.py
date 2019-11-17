@@ -9,26 +9,12 @@ def POSTRequestSync(url, headers, data):
 def consumeGETRequestSync(url, headers):
   response = requests.get(url, headers=headers)
   return(response)
-  
-def transformdata(datain):
-# foobot to initial state  
-  ans = json.loads(datain)
-  z= zip(ans["sensors"], ans["datapoints"][0])
-  data = dict(zip(ans["sensors"], ans["datapoints"][0]))
-  # nu nog de timestamp
-  return data
-  
-def transform2xively(datain):
-# foobot to xively
-  ans = json.loads(datain)
-  sensors = ans["sensors"]
-  dp = ans["datapoints"][0]
-  res = [{"id": sensors[i], "current_value": dp[i]} for i in range(len(sensors))]
-  return json.dumps({ "datastreams" : res})
-  
+
+
+
 if __name__ == "__main__":
   while True:
-    try:  
+    try:
       t0 = time.time()
       incoming = consumeGETRequestSync(fooboturl, fooheaders)
       t1 = time.time()
@@ -40,7 +26,7 @@ if __name__ == "__main__":
       outx = transform2xively(incoming.text)
       responsex = requests.put(xivelyurl, headers = xivheaders, data=outx)
       t3 = time.time()
-      logglypayloadstruct = { 
+      logglypayloadstruct = {
         "foobotelapsed" : t1 - t0,
         "foobotstatus" : incoming.status_code,
         "foobotmessage" : incoming.text[:50],
@@ -53,6 +39,6 @@ if __name__ == "__main__":
       }
       logglypayload = json.dumps(logglypayloadstruct)
       response = POSTRequestSync(logglykey, headers = {}, data=logglypayload)
-    except requests.exceptions.RequestException as e: 
+    except requests.exceptions.RequestException as e:
       print(e)
     time.sleep(600)

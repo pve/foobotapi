@@ -14,7 +14,12 @@ def download_blob(bucket_name, source_blob_name):
 
 def clientsecrets(str):
     """Gets the secrets from a string"""
-    secrets = json.loads(str)
+    try:
+        secrets = json.loads(str)
+    except json.decoder.JSONDecodeError as e:
+        print("Json error ")
+        print(e)
+        secrets = None
     return secrets
 
 def getsecrets(bucket_name, source_blob_name):
@@ -22,3 +27,5 @@ def getsecrets(bucket_name, source_blob_name):
     s = download_blob(bucket_name, source_blob_name)
     res = clientsecrets(s)
     return res
+
+# todo error message testing + testcases

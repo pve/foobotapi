@@ -1,0 +1,18 @@
+steps:
+- name: python:3.7-slim
+  entrypoint: 'bash'
+  args: ['-c', 'pip install -r ./requirements.txt && pytest -v .']
+  id: unittest
+- name: python:3.7-slim
+  entrypoint: 'bash'
+  args: ['-c', 'pip install -r ./requirements.txt && bandit -ll -r .']
+  id: security testing
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['functions', 'deploy', 'pubsub2bigquery',
+  '--trigger-topic=foobotcron',
+  '--runtime=python37',
+  '--region=us-central1',
+  '--set-env-vars=CONFIGBUCKET=imp-iot-project.appspot.com',
+  '--entry-point=oneshot']
+  # CONFIGBUCKET has the name of the bucket that holds the clientconfig.json file with the secrets
+  # The executing function should be the only entity having read access to it.
