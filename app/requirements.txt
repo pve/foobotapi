@@ -1,2 +1,4 @@
 Requests>=2.21.0
 google-cloud-storage
+pytest
+bandit
