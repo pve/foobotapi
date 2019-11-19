@@ -1,4 +1,5 @@
 Requests>=2.21.0
 google-cloud-storage
+google-cloud-bigquery
 pytest
 bandit
