@@ -1,11 +1,11 @@
 steps:
 - name: python:3.7-slim
   entrypoint: 'bash'
-  args: ['-c', 'pip install -r ./requirements.txt && pytest -v .']
+  args: ['-c', 'pip install -r ./app/requirements.txt && pytest -v .']
   id: unittest
 - name: python:3.7-slim
   entrypoint: 'bash'
-  args: ['-c', 'pip install -r ./requirements.txt && bandit -ll -r .']
+  args: ['-c', 'pip install -r ./app/requirements.txt && bandit -ll -r .']
   id: security testing
 - name: 'gcr.io/cloud-builders/gcloud'
   args: ['functions', 'deploy', 'pubsub2bigquery',
