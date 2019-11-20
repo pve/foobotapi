@@ -1,4 +1,9 @@
 import os
+from credsfromfile import *
+
+#config = os.environ.get('CONFIGBUCKET') # supposedly a GS bucket.
+#secrets = getsecrets(config, "foobot_config.json")
+
 fooboturl = os.getenv('fooboturl','novalidkey')
 foobotkey = os.getenv('foobotkey','novalidkey')
 isurl = os.getenv('isurl','novalidkey')
@@ -12,7 +17,7 @@ xivelykey = os.getenv('xivelykey','novalidkey')
 
 fooheaders = {"Accept": "application/json", "X-API-KEY-TOKEN": foobotkey }
 
-isheaders = {"Accept": "application/json", 
+isheaders = {"Accept": "application/json",
 		"X-IS-AccessKey": isaccesskey,
 		"X-IS-BucketKey": isbucketkey
 }

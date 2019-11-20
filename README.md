@@ -24,3 +24,5 @@ http://stackoverflow.com/questions/17301938/making-a-request-to-a-restful-api-us
 http://support.initialstate.com/knowledgebase/articles/590091-how-to-stream-events-via-restful-api
 
 Logging the build: XXX
+
+cloudbuild.gserviceaccount.com has to have the rights required to run the tests. 
