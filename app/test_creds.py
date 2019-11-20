@@ -4,14 +4,14 @@ from credsfromfile import *
 # split in unit test and integration test
 def test_file():
     getit = download_blob("imp-iot-project.appspot.com", "file")
-    assert getit == b"aap noot mies\n"
+    assert getit == b"aap noot mies"
 
 def test_decoder():
     assert clientsecrets(b'{"foo" : "one"}') == {'foo' : 'one'}
 
 def test_getsecrets():
-    res = getsecrets("imp-iot-project.appspot.com", "file")
-    assert res == "whatever"
+    res = getsecrets("imp-iot-project.appspot.com", "clientconfig.json")
+    assert 'dataset_id' in res
 
 gcpexample = """
 {
