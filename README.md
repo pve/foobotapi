@@ -25,4 +25,5 @@ http://support.initialstate.com/knowledgebase/articles/590091-how-to-stream-even
 
 Logging the build: XXX
 
-cloudbuild.gserviceaccount.com has to have the rights required to run the tests. 
+cloudbuild.gserviceaccount.com has to have the rights required to run the tests.
+build steps have their own environment variables, and roles.  
