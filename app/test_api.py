@@ -4,6 +4,7 @@ from settings import *
 from foobotapi1shotgcf import *
 
 def test_env ():
+    fooboturl = os.getenv('fooboturl','novalidkey')
     assert fooboturl.startswith("https://")
     assert foobotkey != 'novalidkey'
     assert isurl.startswith("https://")
