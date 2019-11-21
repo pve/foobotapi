@@ -13,7 +13,7 @@ steps:
   '--trigger-topic=foobotcron',
   '--runtime=python37',
   '--region=us-central1',
-  '--set-env-vars=CONFIGBUCKET=imp-iot-project.appspot.com',
+  '--set-env-vars=CONFIGBUCKET=staging.imp-iot-project.appspot.com',
   '--entry-point=oneshot']
   # CONFIGBUCKET has the name of the bucket that holds the clientconfig.json file with the secrets
   # The executing function should be the only entity having read access to it.
