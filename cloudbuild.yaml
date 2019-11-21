@@ -8,6 +8,7 @@ steps:
   args: ['-c', 'pip install -r ./app/requirements.txt && bandit -ll -r .']
   id: security testing
 - name: 'gcr.io/cloud-builders/gcloud'
+  dir: app
   args: ['functions', 'deploy', 'pubsub2bigquery',
   '--trigger-topic=foobotcron',
   '--runtime=python37',
