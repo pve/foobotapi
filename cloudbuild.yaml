@@ -9,7 +9,7 @@ steps:
   id: security testing
 - name: 'gcr.io/cloud-builders/gcloud'
   dir: app
-  args: ['functions', 'deploy', 'pubsub2bigquery',
+  args: ['functions', 'deploy', 'foobotapi',
   '--trigger-topic=foobotcron',
   '--runtime=python37',
   '--region=us-central1',
