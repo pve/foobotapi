@@ -8,6 +8,7 @@ def test_env ():
     assert foobotkey != 'novalidkey'
     assert isurl.startswith("https://")
     assert isbucketkey != 'novalidkey'
+    assert dataset_id != 'novalidkey'
 
 def test_get ():
     response = consumeGETRequestSync(fooboturl, headers=fooheaders)

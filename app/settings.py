@@ -10,8 +10,8 @@ def getconfigitem(item, secrets):
 config = os.environ.get('CONFIGBUCKET') # supposedly a GS bucket.
 secrets = getsecrets(config, "clientsecrets.json")
 
-dataset_id = getconfigitem('foobot', secrets)
-table_id = getconfigitem('sensordata', secrets)
+dataset_id = getconfigitem('dataset_id', secrets)
+table_id = getconfigitem('table_id', secrets)
 
 fooboturl = getconfigitem('fooboturl', secrets)
 foobotkey = getconfigitem('foobotkey', secrets)

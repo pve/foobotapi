@@ -1,4 +1,5 @@
 from credsfromfile import *
+from settings import *
 # test if the required parameters are actually in the sample secrets file
 #https://github.com/GoogleCloudPlatform/storage-file-transfer-json-python/blob/master/client_secrets.json
 # split in unit test and integration test
@@ -10,8 +11,9 @@ def test_decoder():
     assert clientsecrets(b'{"foo" : "one"}') == {'foo' : 'one'}
 
 def test_getsecrets():
-    res = getsecrets("imp-iot-project.appspot.com", "clientconfig.json")
+    res = getsecrets("imp-iot-project.appspot.com", "clientsecrets.json")
     assert 'dataset_id' in res
+    assert res['dataset_id'] != 'novalidkey'
 
 gcpexample = """
 {
