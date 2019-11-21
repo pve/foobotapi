@@ -1,7 +1,7 @@
 # for use with pytest
 import os, requests, json, datetime
 from settings import *
-from foobotapi1shotgcf import *
+from main import *
 
 def test_env ():
     assert fooboturl.startswith("https://")
