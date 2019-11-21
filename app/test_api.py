@@ -41,7 +41,7 @@ def test_loggly():
     assert response.ok
 
 def test_date():
-    assert datetime.datetime.fromtimestamp(1413917402).isoformat()=='2014-10-21T20:50:02'
+    assert datetime.datetime.utcfromtimestamp(1413917402).isoformat()=='2014-10-21T18:50:02'
 
 '{:06.2f}'.format(3.141592653589793)
 
