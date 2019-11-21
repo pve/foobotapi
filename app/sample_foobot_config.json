@@ -5,5 +5,7 @@
   "isurl": "https://groker.initialstate.com/api/events",
   "isaccesskey" : "REPLACE",
   "isbucketkey" : "REPLACE",
-  "logglykey" : "REPLACE"
+  "logglykey" : "REPLACE",
+  "dataset_id" : "foobot",
+  "table_id" : "sensordata"
 }

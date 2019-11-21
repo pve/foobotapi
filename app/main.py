@@ -6,9 +6,7 @@ from google.cloud import bigquery
 
 client = bigquery.Client()
 # dataset_id retrieved from environment
-dataset_id = 'foobot'  # replace with your dataset ID
-#For this sample, the table must already exist and have a defined schema
-table_id = 'sensordata'  # replace with your table ID
+# For this sample, the table must already exist and have a defined schema
 table_ref = client.dataset(dataset_id).table(table_id)
 table = client.get_table(table_ref)  # API request
 
@@ -75,6 +73,3 @@ def oneshot(event, context):
    except requests.exceptions.RequestException as e:
       print(e)
 # we hebben meer exceptions
-
-if __name__ == "__main__":
-   oneshot('text', 'contex')
