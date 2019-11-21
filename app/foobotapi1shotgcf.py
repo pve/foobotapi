@@ -1,17 +1,11 @@
 import requests
 import json, os, time, datetime
+from settings import *
+from transform import *
 from google.cloud import bigquery
 
-fooboturl = os.getenv('fooboturl','novalidkey')
-foobotkey = os.getenv('foobotkey','novalidkey')
-isurl = os.getenv('isurl','novalidkey')
-isaccesskey = os.getenv('isaccesskey','novalidkey')
-isbucketkey = os.getenv('isbucketkey','novalidkey')
-logglykey = os.getenv('logglykey','novalidkey')
-
 client = bigquery.Client()
-#table_id = "imp-iot-project.demo.fredwilma"
-
+# dataset_id retrieved from environment
 dataset_id = 'foobot'  # replace with your dataset ID
 #For this sample, the table must already exist and have a defined schema
 table_id = 'sensordata'  # replace with your table ID

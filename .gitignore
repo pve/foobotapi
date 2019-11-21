@@ -1,5 +1,5 @@
 .DS_Store
-secrets
+*secret*
 *private*
 *.env
 # Byte-compiled / optimized / DLL files

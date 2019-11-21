@@ -1,7 +1,7 @@
 steps:
 - name: python:3.7-slim
   entrypoint: 'bash'
-  args: ['-c', 'pip install -r ./app/requirements.txt && ./app/settings.env && pytest -v .']
+  args: ['-c', 'pip install -r ./app/requirements.txt && CONFIGBUCKET=staging.imp-iot-project.appspot.com pytest -v .']
   id: unittest
 - name: python:3.7-slim
   entrypoint: 'bash'
@@ -16,3 +16,4 @@ steps:
   '--entry-point=oneshot']
   # CONFIGBUCKET has the name of the bucket that holds the clientconfig.json file with the secrets
   # The executing function should be the only entity having read access to it.
+  # The builder should have access to a version of it that allows testing.
