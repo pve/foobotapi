@@ -1,5 +1,5 @@
 import requests
-import json, os, time, datetime
+import json, os, time, datetime, logging
 from settings import *
 from transform import *
 from google.cloud import bigquery
