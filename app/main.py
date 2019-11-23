@@ -74,4 +74,4 @@ def oneshot(event, context):
 	   response = POSTRequestSync(logglykey, headers = {}, data=logglypayload)
    except requests.exceptions.RequestException as e:
       print(e)
-# we hebben meer exceptions
+# we hebben meer exceptions 
