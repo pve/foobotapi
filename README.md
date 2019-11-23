@@ -27,3 +27,7 @@ Logging the build: XXX
 
 cloudbuild.gserviceaccount.com has to have the rights required to run the tests.
 build steps have their own environment variables, and roles.  
+
+Using Stackdriver: https://medium.com/@duhroach/getting-google-cloud-functions-times-in-stackdriver-61ec1b33a92
+
+Using tracing on Python functions. https://medium.com/faun/tracing-python-cloud-functions-a17545586359

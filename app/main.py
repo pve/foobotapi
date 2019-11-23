@@ -56,6 +56,7 @@ def oneshot(event, context):
 	   bqin[0] = datetime.datetime.utcfromtimestamp(bqin[0]).strftime('%Y-%m-%d %H:%M:%S')
 	   rows_to_insert = [tuple(bqin)]
 	   print(rows_to_insert)
+	   logging.warning("na print rows aap")
 	   errors = client.insert_rows(table, rows_to_insert)  # API request
 	   print(errors)
 	   t3 = time.time()
