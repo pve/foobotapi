@@ -58,6 +58,7 @@ def oneshot(event, context):
 	   print(rows_to_insert)
 	   logging.warning("na print rows aap")
 	   errors = client.insert_rows(table, rows_to_insert)  # API request
+	   # if errors logging.error()
 	   print(errors)
 	   t3 = time.time()
 	   logglypayloadstruct = {
@@ -70,6 +71,7 @@ def oneshot(event, context):
 	   "bqlapse"  : t3 - t2,
 	   }
 	   logglypayload = json.dumps(logglypayloadstruct)
+	   logging.info(logglypayload)
 	   response = POSTRequestSync(logglykey, headers = {}, data=logglypayload)
    except requests.exceptions.RequestException as e:
       print(e)
