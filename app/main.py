@@ -53,7 +53,7 @@ def oneshot(event, context):
 	   bqin = json.loads(incoming.text)["datapoints"][0]
 	   bqin[0] = datetime.datetime.utcfromtimestamp(bqin[0]).strftime('%Y-%m-%d %H:%M:%S')
 	   rows_to_insert = [tuple(bqin)]
-	   print("time, pm, tmp: " + rows_to_insert)
+	   print("time, pm, tmp: " + str(rows_to_insert))
 	   errors = client.insert_rows(table, rows_to_insert)  # API request
 	   if errors:
 	   	  logging.error(errors)
