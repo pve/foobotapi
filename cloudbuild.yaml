@@ -15,8 +15,9 @@ steps:
   # --service-account XXX
   '--region=us-central1',
   '--set-env-vars=CONFIGBUCKET=staging.imp-iot-project.appspot.com',
-  '--entry-point=oneshot']
+  '--entry-point=oneshot'],
   # CONFIGBUCKET has the name of the bucket that holds the clientconfig.json file with the secrets
   # The executing function should be the only entity having read access to it.
-  # The builder should have access to a version of it that allows testing.
   # Operationally, the service account needs to have read access to the secrets bucket.
+  # The builder should have access to a version of it that allows testing.
+  id: function deployment
