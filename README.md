@@ -1,23 +1,23 @@
 # foobotapi
 Foobot is an indoor air pollution sensor device.
 InitialState is a dashboard for IOT.
-Xively is a dashboard for IOT (no longer used)
 
 Data is pulled by a Google Cloud Function into BigQuery.
 
 Deployment of the code is through Google Cloud Build (ideally).
 
-This code will map [Foobot](http://foobot.io) data to [InitialState](http://initialstate.com) and to Xively.
+This code will map [Foobot](http://foobot.io) data to [InitialState](http://initialstate.com).
 You will need accounts on all.
 
 API keys are in environment variables.
 Use settings.env to source these.
-
 Moving to client_secrets.json in GS for secrets.
 
 Uses pytest for testing.
 
-Uses loggly for logging.
+Uses bandit for security analysis.
+
+Uses loggly for logging, moving to StackDriver.
 
 Inspiration for some code:
 http://stackoverflow.com/questions/17301938/making-a-request-to-a-restful-api-using-python

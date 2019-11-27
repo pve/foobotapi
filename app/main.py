@@ -10,8 +10,6 @@ client = bigquery.Client()
 table_ref = client.dataset(dataset_id).table(table_id)
 table = client.get_table(table_ref)  # API request
 
-# print fooboturl, foobotkey, isurl
-
 fooheaders = {"Accept": "application/json", "X-API-KEY-TOKEN": foobotkey }
 
 isheaders = {"Accept": "application/json",
@@ -55,7 +53,7 @@ def oneshot(event, context):
 	   bqin = json.loads(incoming.text)["datapoints"][0]
 	   bqin[0] = datetime.datetime.utcfromtimestamp(bqin[0]).strftime('%Y-%m-%d %H:%M:%S')
 	   rows_to_insert = [tuple(bqin)]
-	   print(rows_to_insert)
+	   print("time, pm, tmp: " + rows_to_insert)
 	   errors = client.insert_rows(table, rows_to_insert)  # API request
 	   if errors:
 	   	  logging.error(errors)
