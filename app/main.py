@@ -23,6 +23,9 @@ def POSTRequestSync(url, headers, data):
 
 def consumeGETRequestSync(url, headers):
   response = requests.get(url, headers=headers)
+  if response.status_code != 200:
+	  logging.error(response.text)
+  # check if we really get an answer, logging.error instead
   return(response)
 
 def transformdata(datain):
