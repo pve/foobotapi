@@ -2,8 +2,9 @@
 import os, requests, json, datetime
 from settings import *
 from main import *
+# see credsfromfile.py for local testing settings. 
 
-def test_env ():
+def test_secrets ():
     assert fooboturl.startswith("https://")
     assert foobotkey != 'novalidkey'
     assert isurl.startswith("https://")
@@ -29,7 +30,6 @@ def test_put ():
     }
     response = POSTRequestSync(isurl, headers=isheaders, data=data)
     assert True #response.ok
-#http://docs.initialstateeventsapi.apiary.io/#reference/event-data/events-json
 
 def test_loggly():
     payload = {

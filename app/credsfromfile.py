@@ -1,6 +1,8 @@
 from google.cloud import storage
 import json
+# for local testing
 # export GOOGLE_APPLICATION_CREDENTIALS="IMP iot project-272ba9e6a170private.json"
+# export CONFIGBUCKET="imp-iot-project.appspot.com"
 # permissions...storage.buckets.get access
 
 def download_blob(bucket_name, source_blob_name):

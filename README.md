@@ -1,12 +1,19 @@
 # Using the foobotapi
 The Foobot is an indoor air pollution sensor device.
-InitialState is a dashboard for IOT.
+InitialState is a dashboard for IOT. This code connects the
+Foobot to several data sinks.
+
+<!---
+your comment goes here
+In the readme, the audience is those who wish to
+figure out if they should read any further
+-->
 
 The second objective of this code is to demonstrate cloud native development. In this case we are working with 'serverless' functions, and we are focussing on the Google code ecosystem. More tutorial explanation is in [here](main.md).
 
 Data is pulled by a Google Cloud Function into BigQuery.
 
-Deployment of the code is through Google Cloud Build (ideally).
+Deployment of the code is through Google Cloud Build.
 
 This code maps [Foobot](http://foobot.io) data to [InitialState](http://initialstate.com), and a Google BigQuery database.
 InitialState no longer has free plans.
