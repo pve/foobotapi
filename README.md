@@ -1,17 +1,18 @@
-# foobotapi
-Foobot is an indoor air pollution sensor device.
+# Using the foobotapi
+The Foobot is an indoor air pollution sensor device.
 InitialState is a dashboard for IOT.
+
+The second objective of this code is to demonstrate cloud native development. In this case we are working with 'serverless' functions, and we are focussing on the Google code ecosystem. More tutorial explanation is in [here](main.md).
 
 Data is pulled by a Google Cloud Function into BigQuery.
 
 Deployment of the code is through Google Cloud Build (ideally).
 
-This code will map [Foobot](http://foobot.io) data to [InitialState](http://initialstate.com).
+This code maps [Foobot](http://foobot.io) data to [InitialState](http://initialstate.com), and a Google BigQuery database.
+InitialState no longer has free plans.
 You will need accounts on all.
 
-API keys are in environment variables.
-Use settings.env to source these.
-Moving to client_secrets.json in GS for secrets.
+API keys are in a file clientsecrets.json in GS for secrets.
 
 Uses pytest for testing.
 
