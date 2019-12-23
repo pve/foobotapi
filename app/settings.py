@@ -8,7 +8,7 @@ def getconfigitem(item, secrets):
 		return("novalidkey")
 
 config = os.environ.get('CONFIGBUCKET') # supposedly a GS bucket.
-secrets = getsecrets(config, "clientsecrets.json")
+secrets = getsecrets(config, "foobosecrets.json")
 
 dataset_id = getconfigitem('dataset_id', secrets)
 table_id = getconfigitem('table_id', secrets)

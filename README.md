@@ -19,7 +19,7 @@ This code maps [Foobot](http://foobot.io) data to [InitialState](http://initials
 InitialState no longer has free plans.
 To replicate this setup you will need accounts on all.
 
-API keys are in a file clientsecrets.json in GS for secrets.
+API keys are in a file foobotsecrets.json in GS for secrets.
 
 Uses pytest for testing.
 

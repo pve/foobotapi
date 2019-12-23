@@ -8,7 +8,7 @@ def test_decoder():
     assert clientsecrets(b'{"foo" : "one"}') == {'foo' : 'one'}
 
 def test_getsecrets():
-    res = getsecrets(config, "clientsecrets.json")
+    res = getsecrets(config, "foobotsecrets.json")
     assert 'dataset_id' in res
     assert res['dataset_id'] != 'novalidkey'
 
