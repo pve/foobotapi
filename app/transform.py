@@ -21,7 +21,9 @@ def transform2adafruit(datain):
   ans = json.loads(datain)
   sensors = ans["sensors"]
   dp = ans["datapoints"][0]
-  res = [{"key": sensors[i], "value": dp[i]} for i in range(len(sensors))]
-  return json.dumps({ "feeds" : res})
+  res = [{"key": sensors[i], "value": dp[i]} for i in range(min(len(sensors),5))]
+  # -1 because of adafruit limits
+#  return json.dumps({ "feeds" : res})
+  return { "feeds" : res}
 
 #transform2adafruit(sampleadafruitin)

@@ -18,7 +18,7 @@ isheaders = {"Accept": "application/json",
 }
 
 def POSTRequestSync(url, headers, data):
-  response = requests.post(url, headers=headers, json=data)
+  response = requests.post(url, headers=headers, data=data)
   return response
 
 def consumeGETRequestSync(url, headers):
@@ -28,30 +28,16 @@ def consumeGETRequestSync(url, headers):
   # check if we really get an answer, logging.error instead
   return(response)
 
-# def transformdata(datain):
-# # foobot to initial state
-#   ans = json.loads(datain)
-#   z= zip(ans["sensors"], ans["datapoints"][0])
-#   data = dict(zip(ans["sensors"], ans["datapoints"][0]))
-#   # nu nog de timestamp
-#   return data
-#
-# def transform2xively(datain):
-# # foobot to xively
-#   ans = json.loads(datain)
-#   sensors = ans["sensors"]
-#   dp = ans["datapoints"][0]
-#   res = [{"id": sensors[i], "current_value": dp[i]} for i in range(len(sensors))]
-#   return json.dumps({ "datastreams" : res})
-
 def oneshot(event, context):
    try:
 	   t0 = time.time()
 	   incoming = consumeGETRequestSync(fooboturl, fooheaders) # velden mogelijk in willekeurige volgord
 	   t1 = time.time()
 	   outgoing = transform2adafruit(incoming.text)
-	   response = POSTRequestSync(afurl + "/" + afuser + "/groups/test/data",
-	   	headers=afheaders, data=outgoing)
+	   print(outgoing)
+	   response = requests.post(afurl + "/" + afuser + "/groups/foobot/data",
+	   		headers=afheaders, json=outgoing)
+	   print(response.text)
 	   t2 = time.time()
 	   sampleinput1 = u'{"uuid":"2701466D278044A0","start":1490861042,"end":1490861042,"sensors":["pm","co2"],"units":["ugm3","ppm"],"datapoints":[[2,98]]}' #string, input to json.loads
 	   bqin = json.loads(incoming.text)["datapoints"][0]
@@ -78,3 +64,5 @@ def oneshot(event, context):
       print(e)
 # there are more types of exceptions.
 # add some code to run this
+if __name__ == '__main__':
+	oneshot("", "")
