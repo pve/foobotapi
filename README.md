@@ -17,7 +17,7 @@ Deployment of the code is through Google Cloud Build.
 
 This code maps [Foobot](http://foobot.io) data to [InitialState](http://initialstate.com), and a Google BigQuery database.
 InitialState no longer has free plans.
-You will need accounts on all.
+To replicate this setup you will need accounts on all.
 
 API keys are in a file clientsecrets.json in GS for secrets.
 

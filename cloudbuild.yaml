@@ -1,7 +1,7 @@
 steps:
 - name: python:3.7-slim
   entrypoint: 'bash'
-  args: ['-c', 'pip install -r ./app/requirements.txt && CONFIGBUCKET=imp-iot-project.appspot.com pytest -v .']
+  args: ['-c', 'pip install -r ./app/requirements.txt && CONFIGBUCKET=staging.imp-iot-project.appspot.com pytest -v .']
   id: unittest
 - name: python:3.7-slim
   entrypoint: 'bash'

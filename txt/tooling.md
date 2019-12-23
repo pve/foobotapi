@@ -1,11 +1,13 @@
 # Tooling
-I am not doing much software development, so I am not interested in learning a fully
+## Editor
+I am not doing much software development, so I am not interested in diving into a fully
 featured development environment with a steep learning curve.
 On top of that, we are targeting a runtime environment in the cloud, so there is limited local development.
 Having said that, I am reasonably pleased with [Atom](https://atom.io) and its packages.
 <!---
 your comment goes here
 pyenv, pytest
+stackdriver monitoring
 -->
 
 
@@ -27,3 +29,4 @@ I can then selectively push the master branch to either of these origins. In pra
 peter$ git push origin master
 peter$ git push google master
 ```
+## Python
