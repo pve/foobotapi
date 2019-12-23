@@ -18,7 +18,7 @@ isheaders = {"Accept": "application/json",
 }
 
 def POSTRequestSync(url, headers, data):
-  response = requests.post(url, headers=headers, data=data)
+  response = requests.post(url, headers=headers, json=data)
   return response
 
 def consumeGETRequestSync(url, headers):
@@ -51,7 +51,7 @@ def oneshot(event, context):
 	   t1 = time.time()
 	   outgoing = transform2adafruit(incoming.text)
 	   response = POSTRequestSync(afurl + "/" + afuser + "/groups/test/data",
-	   	headers=afheaders, json=outgoing)
+	   	headers=afheaders, data=outgoing)
 	   t2 = time.time()
 	   sampleinput1 = u'{"uuid":"2701466D278044A0","start":1490861042,"end":1490861042,"sensors":["pm","co2"],"units":["ugm3","ppm"],"datapoints":[[2,98]]}' #string, input to json.loads
 	   bqin = json.loads(incoming.text)["datapoints"][0]
@@ -76,4 +76,5 @@ def oneshot(event, context):
 	   response = POSTRequestSync(logglykey, headers = {}, data=logglypayload)
    except requests.exceptions.RequestException as e:
       print(e)
-# we hebben meer exceptions
+# there are more types of exceptions.
+# add some code to run this
