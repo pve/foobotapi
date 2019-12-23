@@ -2,6 +2,9 @@
 your comment goes here
 alternate approaches
 do structured logging to Stackdriver
+
+
+next level: generate the project and its contents, including the logging.
 -->
 
 # Placeholder for full explanation.
