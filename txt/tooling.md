@@ -29,4 +29,7 @@ I can then selectively push the master branch to either of these origins. In pra
 peter$ git push origin master
 peter$ git push google master
 ```
-## Python
+## Python and tools
+<!---
+pyenv, pytest
+-->

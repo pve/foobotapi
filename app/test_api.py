@@ -2,7 +2,7 @@
 import os, requests, json, datetime
 from settings import *
 from main import *
-# see credsfromfile.py for local testing settings. 
+# see credsfromfile.py for local testing settings.
 
 def test_secrets ():
     assert fooboturl.startswith("https://")
@@ -22,7 +22,7 @@ def test_get ():
     assert "datapoints" in response.text
     assert "sensors" in response.text
 
-def test_put ():
+def test_put (): # initialstate
     data = {
     "status": ":thumbsup:",
 	"source": "test_api",
@@ -30,6 +30,11 @@ def test_put ():
     }
     response = POSTRequestSync(isurl, headers=isheaders, data=data)
     assert True #response.ok
+
+def test_af (): # adafruit
+    data = { "feeds": [ { "key": "a", "value": "42" }, { "key": "b", "value": "8" }]}
+    response = requests.post(afurl + "/" + afuser + "/groups/test/data", headers=afheaders, json=data)
+    assert response.ok
 
 def test_loggly():
     payload = {

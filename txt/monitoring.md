@@ -8,7 +8,7 @@ So, our system needs to be monitored, and failure modes reported upon.
 
 ## Tooling
 I have used many monitoring tools in the past, but for this project we are
-looking at something a bit more native to the Google platform. That product is [Stackdriver].
+looking at something a bit more native to the Google platform. That product is [Stackdriver]().
 Stackdriver also has a pretty generous free allotment.
 
 ## What to monitor and alert
@@ -18,3 +18,7 @@ In case of a website, you want to monitor if it can be accessed by users around 
 
 In our case, we want data to be ingested in the database. The assumption of course is that it will be meaningful data. Interestingly, this is a native metric that Google Cloud provides. Alternative one could look at the 'staleness'
 of data by looking at the frequency of 'ok' function executions. However, we have seen that there can be many function invocation errors that go undetected in that way.
+
+```
+The metric logging/user/FoobotOK for imp-iot-project Cloud Function labels {function_name=foobotapi, region=us-central1} with metric labels {log=cloudfunctions.googleapis.com/cloud-functions} has not been seen for over 15 minutes.
+```

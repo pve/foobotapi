@@ -15,3 +15,13 @@ def transform2xively(datain):
   dp = ans["datapoints"][0]
   res = [{"id": sensors[i], "current_value": dp[i]} for i in range(len(sensors))]
   return json.dumps({ "datastreams" : res})
+
+def transform2adafruit(datain):
+# foobot to adafruit
+  ans = json.loads(datain)
+  sensors = ans["sensors"]
+  dp = ans["datapoints"][0]
+  res = [{"key": sensors[i], "value": dp[i+1]} for i in range(len(sensors))]
+  return json.dumps({ "feeds" : res})
+
+#transform2adafruit(sampleadafruitin)

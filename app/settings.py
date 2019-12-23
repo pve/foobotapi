@@ -19,9 +19,14 @@ isurl = getconfigitem('isurl', secrets)
 isaccesskey = getconfigitem('isaccesskey', secrets)
 isbucketkey = getconfigitem('isbucketkey', secrets)
 logglykey = getconfigitem('logglykey', secrets)
-# print fooboturl, foobotkey, isurl
+# logging fooboturl, foobotkey, isurl
+#adafruit
+afkey = getconfigitem('adafruitkey', secrets)
+afurl = getconfigitem('adafruiturl', secrets)
+afuser = getconfigitem('adafruituser', secrets)
 
 fooheaders = {"Accept": "application/json", "X-API-KEY-TOKEN": foobotkey }
+afheaders = { "X-AIO-Key": "b063f2a23f76478a9a8be4daaf52fde6" }
 
 isheaders = {"Accept": "application/json",
 		"X-IS-AccessKey": isaccesskey,

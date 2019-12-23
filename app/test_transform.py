@@ -14,3 +14,12 @@ def test_transform ():
 
 sampleinput1 = u'{"uuid":"2701466D278044A0","start":1490861042,"end":1490861042,"sensors":["pm","co2"],"units":["ugm3","ppm"],"datapoints":[[2,100]]}' #string, input to json.loads
 #payload2xively = {'datastreams': [{'current_value': 2, 'id': 'pm'}, {'current_value': 100, 'id': 'co2'}]}  #pyhon object
+
+sampleadafruit = u'{"feeds": [{"key": "a", "value": "42"}, {"key": "b", "value": "8"}]}'
+sampleadafruitin = {"uuid":"2701466D278044A0","start":1571513969,"end":1571513969,"sensors":["a","b"],"units":["s","ugm3"],"datapoints":[[1571513969,42,8]]}
+
+def test_transform2adafruit():
+    x = u'{"uuid":"2701466D278044A0","start":1571513969,"end":1571513969,"sensors":["a","b"],"units":["s","ugm3"],"datapoints":[[1571513969,"42","8"]]}'
+    y = sampleadafruit
+    r = transform2adafruit(x)
+    assert(y == r)
