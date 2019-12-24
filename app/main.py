@@ -10,8 +10,6 @@ client = bigquery.Client()
 table_ref = client.dataset(dataset_id).table(table_id)
 table = client.get_table(table_ref)  # API request
 
-fooheaders = {"Accept": "application/json", "X-API-KEY-TOKEN": foobotkey }
-
 def POSTRequestSync(url, headers, data):
   response = requests.post(url, headers=headers, data=data)
   return response

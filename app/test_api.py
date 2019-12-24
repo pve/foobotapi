@@ -7,16 +7,12 @@ from main import *
 def test_secrets ():
     assert fooboturl.startswith("https://")
     assert foobotkey != 'novalidkey'
-    # assert isurl.startswith("https://")
-    # assert isbucketkey != 'novalidkey'
     assert dataset_id != 'novalidkey'
 
 def test_get ():
     response = consumeGETRequestSync(fooboturl, headers=fooheaders)
     print("code:"+ str(response.status_code))
-    print ("******************")
     print ("headers:"+ str(response.headers))
-    print ("******************")
     print ("content:"+ str(response.text))
     assert response.ok
     assert "datapoints" in response.text
