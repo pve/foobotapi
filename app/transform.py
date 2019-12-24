@@ -8,22 +8,13 @@ def transformdata(datain):
   # nu nog de timestamp
   return data
 
-def transform2xively(datain):
-# foobot to xively
-  ans = json.loads(datain)
-  sensors = ans["sensors"]
-  dp = ans["datapoints"][0]
-  res = [{"id": sensors[i], "current_value": dp[i]} for i in range(len(sensors))]
-  return json.dumps({ "datastreams" : res})
-
 def transform2adafruit(datain):
 # foobot to adafruit
   ans = json.loads(datain)
   sensors = ans["sensors"]
   dp = ans["datapoints"][0]
   res = [{"key": sensors[i], "value": dp[i]} for i in range(min(len(sensors),5))]
-  # -1 because of adafruit limits
+  # min because of adafruit limits
 #  return json.dumps({ "feeds" : res})
+# todo: time field is special.
   return { "feeds" : res}
-
-#transform2adafruit(sampleadafruitin)

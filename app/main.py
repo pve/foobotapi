@@ -12,11 +12,6 @@ table = client.get_table(table_ref)  # API request
 
 fooheaders = {"Accept": "application/json", "X-API-KEY-TOKEN": foobotkey }
 
-isheaders = {"Accept": "application/json",
-		"X-IS-AccessKey": isaccesskey,
-		"X-IS-BucketKey": isbucketkey
-}
-
 def POSTRequestSync(url, headers, data):
   response = requests.post(url, headers=headers, data=data)
   return response
