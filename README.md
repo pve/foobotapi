@@ -1,6 +1,6 @@
 # Using the foobotapi
 The Foobot is an indoor air pollution sensor device.
-InitialState is a dashboard for IOT. This code connects the
+Io.Adafruit is a dashboard for IOT. This code connects the
 Foobot to several data sinks.
 
 <!---
@@ -15,7 +15,7 @@ Data is pulled by a Google Cloud Function into BigQuery.
 
 Deployment of the code is through Google Cloud Build.
 
-This code maps [Foobot](http://foobot.io) data to [InitialState](http://initialstate.com), and a Google BigQuery database.
+This code maps [Foobot](http://foobot.io) data to [io.adafruit.com](http://initialstate.com), and a Google BigQuery database.
 InitialState no longer has free plans.
 To replicate this setup you will need accounts on all.
 

@@ -3,6 +3,8 @@ your comment goes here
 alternate approaches
 do structured logging to Stackdriver
 
+risk based approach.
+
 
 next level: generate the project and its contents, including the logging.
 -->
