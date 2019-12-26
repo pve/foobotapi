@@ -1,7 +1,7 @@
-# Using the foobotapi
+# Using the foobot api
 The Foobot is an indoor air pollution sensor device.
 Io.Adafruit is a dashboard for IOT. This code connects the
-Foobot to several data sinks.
+Foobot to this and other data sinks.
 
 <!---
 your comment goes here

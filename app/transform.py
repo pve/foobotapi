@@ -13,7 +13,7 @@ def transform2adafruit(datain):
   ans = json.loads(datain)
   sensors = ans["sensors"]
   dp = ans["datapoints"][0]
-  res = [{"key": sensors[i], "value": dp[i]} for i in range(min(len(sensors),5))]
+  res = [{"key": sensors[i], "value": dp[i]} for i in range(min(len(sensors),6))]
   # min because of adafruit limits
 #  return json.dumps({ "feeds" : res})
 # todo: time field is special.

@@ -37,7 +37,10 @@ def test_date():
     assert datetime.datetime.utcfromtimestamp(1413917402).isoformat()=='2014-10-21T18:50:02'
 
 '{:06.2f}'.format(3.141592653589793)
-# http://api.foobot.io/v2/device/2701466D278044A0/datapoint/0/last/0/
-#curl -X GET --header "Accept: text/csv;charset=UTF-8" --header "X-API-KEY-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJncmFudGVlIjoicHZlaWprQGdtYWlsLmNvbSIsImlhdCI6MTQ4ODMxOTUyMCwidmFsaWRpdHkiOi0xLCJqdGkiOiIwNTlmODMwMC01ODM3LTQwOTMtOWFjNi1lNmM4ZGJlNTlmYTUiLCJwZXJtaXNzaW9ucyI6WyJ1c2VyOnJlYWQiLCJkZXZpY2U6cmVhZCJdLCJxdW90YSI6MjAwLCJyYXRlTGltaXQiOjV9.auPttWcJa-mE8Ck8-52JOrJawo3Jf6kHIhq4lzRpq-g" "http://api.foobot.io/v2/device/2701466D278044A0/datapoint/0/last/0/"
-#curl -X GET --header "X-API-KEY-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJncmFudGVlIjoicHZlaWprQGdtYWlsLmNvbSIsImlhdCI6MTQ4ODMxOTUyMCwidmFsaWRpdHkiOi0xLCJqdGkiOiIwNTlmODMwMC01ODM3LTQwOTMtOWFjNi1lNmM4ZGJlNTlmYTUiLCJwZXJtaXNzaW9ucyI6WyJ1c2VyOnJlYWQiLCJkZXZpY2U6cmVhZCJdLCJxdW90YSI6MjAwLCJyYXRlTGltaXQiOjV9.auPttWcJa-mE8Ck8-52JOrJawo3Jf6kHIhq4lzRpq-g" "http://api.foobot.io/v2/device/2701466D278044A0/datapoint/0/last/0/"
-# sample answer : {"uuid":"2701466D278044A0","start":1571513969,"end":1571513969,"sensors":["time","pm","tmp","hum","co2","voc","allpollu"],"units":["s","ugm3","C","pc","ppm","ppb","%"],"datapoints":[[1571513969,12.360016,17.733,63.555,1309,362,42.52668]]}
+'''
+#foobot
+http://api.foobot.io/v2/device/2701466D278044A0/datapoint/0/last/0/
+curl -X GET --header "Accept: text/csv;charset=UTF-8" --header "X-API-KEY-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJncmFudGVlIjoicHZlaWprQGdtYWlsLmNvbSIsImlhdCI6MTQ4ODMxOTUyMCwidmFsaWRpdHkiOi0xLCJqdGkiOiIwNTlmODMwMC01ODM3LTQwOTMtOWFjNi1lNmM4ZGJlNTlmYTUiLCJwZXJtaXNzaW9ucyI6WyJ1c2VyOnJlYWQiLCJkZXZpY2U6cmVhZCJdLCJxdW90YSI6MjAwLCJyYXRlTGltaXQiOjV9.auPttWcJa-mE8Ck8-52JOrJawo3Jf6kHIhq4lzRpq-g" "http://api.foobot.io/v2/device/2701466D278044A0/datapoint/0/last/0/"
+curl -X GET --header "X-API-KEY-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJncmFudGVlIjoicHZlaWprQGdtYWlsLmNvbSIsImlhdCI6MTQ4ODMxOTUyMCwidmFsaWRpdHkiOi0xLCJqdGkiOiIwNTlmODMwMC01ODM3LTQwOTMtOWFjNi1lNmM4ZGJlNTlmYTUiLCJwZXJtaXNzaW9ucyI6WyJ1c2VyOnJlYWQiLCJkZXZpY2U6cmVhZCJdLCJxdW90YSI6MjAwLCJyYXRlTGltaXQiOjV9.auPttWcJa-mE8Ck8-52JOrJawo3Jf6kHIhq4lzRpq-g" "http://api.foobot.io/v2/device/2701466D278044A0/datapoint/0/last/0/"
+sample answer : {"uuid":"2701466D278044A0","start":1571513969,"end":1571513969,"sensors":["time","pm","tmp","hum","co2","voc","allpollu"],"units":["s","ugm3","C","pc","ppm","ppb","%"],"datapoints":[[1571513969,12.360016,17.733,63.555,1309,362,42.52668]]}
+'''
