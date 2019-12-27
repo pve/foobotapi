@@ -11,5 +11,5 @@ next level: generate the project and its contents, including the logging.
 
 # Placeholder for full explanation.
 See the following sections:
-* [tooling](txt/tooling)
-* [monitoring](txt/monitoring)
+* [tooling](txt/tooling.md)
+* [monitoring](txt/monitoring.md)
