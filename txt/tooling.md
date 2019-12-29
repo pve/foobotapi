@@ -16,7 +16,7 @@ Git is the number one tool here. For reasons explained elsewhere (integration
 with Google, and publishing),
 I am using both github, as well as the Google Cloud Source Repository.
 
-Through Git's [multiple remote features](https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes), this is manageable. For example, this shows all my 'remote' repositories.
+Through Git's [multiple remote features](https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes), this is manageable. For example, this command shows all my 'remote' repositories.
 ```
 peter$ git remote -v
 google	ssh://peter@peterhjvaneijk.nl@source.developers.google.com:2022/p/imp-iot-project/r/foobot (fetch)
@@ -32,4 +32,11 @@ peter$ git push google master
 ## Python and tools
 <!---
 pyenv, pytest
+https://cloud.google.com/error-reporting/docs/setup/python
+Uses pytest for testing.
+
+Uses bandit for security analysis.
+
+Uses loggly for logging, moving to StackDriver.
+
 -->

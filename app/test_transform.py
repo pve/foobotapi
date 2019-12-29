@@ -21,8 +21,10 @@ sampleadafruit = {"feeds": [{"key": "a", "value": "42"}, {"key": "b", "value": "
 {"uuid":"2701466D278044A0","start":1577137911,"end":1577137911,"sensors":["time","pm","tmp","hum","co2","voc","allpollu"],"units":["s","ugm3","C","pc","ppm","ppb","%"],"datapoints":[
 [1577137911,10.980011,17.917,51.873,1223,338,39.146675]]}
 
+sampleinput = u'{"uuid":"2701466D278044A0","start":1571513969,"end":1571513969,"sensors":["a","b"],"units":["s","ugm3"],"datapoints":[["42","8"]]}'
+
 def test_transform2adafruit():
-    x = u'{"uuid":"2701466D278044A0","start":1571513969,"end":1571513969,"sensors":["a","b"],"units":["s","ugm3"],"datapoints":[["42","8"]]}'
+    x = sampleinput
     y = sampleadafruit
     r = transform2adafruit(x)
     assert(y == r)

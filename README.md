@@ -1,7 +1,8 @@
-# Using the foobot api
+# Using the Foobot api
 The Foobot is an indoor air pollution sensor device.
-Io.Adafruit is a dashboard for IOT. This code connects the
-Foobot to this and other data sinks.
+Io.Adafruit is a dashboard for IOT.
+
+This code pulls [Foobot](http://foobot.io) data from its API and sends it to [io.adafruit.com](http://io.adafruit.com), and a Google BigQuery database.
 
 <!---
 your comment goes here
@@ -9,33 +10,21 @@ In the readme, the audience is those who wish to
 figure out if they should read any further
 -->
 
-The second objective of this code is to demonstrate cloud native development. In this case we are working with 'serverless' functions, and we are focussing on the Google code ecosystem. More tutorial explanation is in [here](main.md).
+The second objective of this code is to demonstrate cloud native development. In this case we are working with 'serverless' functions, including continuous delivery, and
+this time we are focussing on the Google code ecosystem. More tutorial explanation is in [here](main.md), where I dissect the full approach theme by theme, topic by topic.
 
-Data is pulled by a Google Cloud Function into BigQuery.
+Technologies and techniques used:
+- Google Cloud functions
+- Continuous delivery through Google Cloud Build
+- Automated unit, integration and security testing
+- BigQuery
+- Foobot API, Io.Adafruit API
+- Continuous monitoring through StackDriver
+- Slack integration for build and run notifications
+- Secrets and credentials management in a DevSecOps world
+- Workflow for Python based development (atom, pyenv, pytest, bandit)
 
-Deployment of the code is through Google Cloud Build.
+You should be able to replicate this setup yourself, if you have accounts for
+these services.
 
-This code maps [Foobot](http://foobot.io) data to [io.adafruit.com](http://initialstate.com), and a Google BigQuery database.
-InitialState no longer has free plans.
-To replicate this setup you will need accounts on all.
-
-API keys are in a file foobotsecrets.json in GS for secrets.
-
-Uses pytest for testing.
-
-Uses bandit for security analysis.
-
-Uses loggly for logging, moving to StackDriver.
-
-Inspiration for some code:
-http://stackoverflow.com/questions/17301938/making-a-request-to-a-restful-api-using-python
-http://support.initialstate.com/knowledgebase/articles/590091-how-to-stream-events-via-restful-api
-
-Logging the build: XXX
-
-cloudbuild.gserviceaccount.com has to have the rights required to run the tests.
-build steps have their own environment variables, and roles.  
-
-Using Stackdriver: https://medium.com/@duhroach/getting-google-cloud-functions-times-in-stackdriver-61ec1b33a92
-
-Using tracing on Python functions. https://medium.com/faun/tracing-python-cloud-functions-a17545586359
+Continue reading [here](main.md).
