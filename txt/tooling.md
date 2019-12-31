@@ -30,12 +30,26 @@ peter$ git push origin master
 peter$ git push google master
 ```
 ## Python and tools
-<!---
-pyenv, pytest
-https://cloud.google.com/error-reporting/docs/setup/python
-Uses pytest for testing.
+On my Mac I use [pyenv](https://github.com/pyenv/pyenv) to manage Python versions. It is simple and efficient. It is also necessary, as the system version of Python is basically wrong, and this allows me to synchronise the local Python version with the one that is used
+in the GCP environment.
+As an alternative you might want to consider 'virtualenv'.
 
-Uses bandit for security analysis.
+For testing Python code, I am using the relatively simple [pytest](https://docs.pytest.org/en/latest/index.html).
+This allows us to write test cases in Python itself.
+This project has three types of tests
+- tests for data conversion
+- tests related to reading and parsing configuration options
+- tests related to the external APIs
+In a development workflow, you want to run the first two types first.
+In the deployment workflow, that does not matter much: they all need to pass.
+
+In my opinion, you should embrace security checks in any DevOps pipeline. While more sophisticated (and more expensive) tools exist, in this proof of concept project we can get along nicely with the [bandit](https://bandit.readthedocs.io/en/latest/index.html) tool for Python. It does require a bit of tweaking in its configuration to minimize false positives. For example, it does not like `assert` statements, which is what `pytest` uses extensively.
+
+## Other tools
+Included in the ecosystem are more tools, such as logging tools, builder tools, and so on. These are covered in some of the other sections in the overview of this project.
+
+<!---
+https://cloud.google.com/error-reporting/docs/setup/python
 
 Uses loggly for logging, moving to StackDriver.
 

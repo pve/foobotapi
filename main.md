@@ -11,7 +11,7 @@ next level: generate the project and its contents, including the logging.
 
 # Overall architecture
 The overall architecture of the solution has the following components:
-- At the core is a 'serverless' function that regularly pulls data from the
+- At the core of the architecture is a 'serverless' function that regularly pulls data from the
 Foobot API and sends it to an AdaFruit dashboard for viewing and a BigQuery database
 for later analysis. This is a Google Cloud Platform (GCP) function, though it could probably
 be implemented in a similar way in Amazon Web Services (AWS) Lambda.
@@ -30,6 +30,7 @@ See the following sections for more details:
 * [API and testing](txt/apiandtesting.md)
 * [triggering the events](txt/cron.md)
 * [tooling](txt/tooling.md)
+* [CI/CD pipeline](txt/cicd.md)
 * [deployment parameters and secrets](deploymentparams.md)
 * [monitoring](txt/monitoring.md)
 

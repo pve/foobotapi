@@ -1,13 +1,14 @@
 steps:
 - name: python:3.7-slim
+  id: unittest
   entrypoint: 'bash'
   args: ['-c', 'pip install -r ./app/requirements.txt && CONFIGBUCKET=staging.imp-iot-project.appspot.com pytest -v .']
-  id: unittest
 - name: python:3.7-slim
-  entrypoint: 'bash'
-  args: ['-c', 'pip install -r ./app/requirements.txt && bandit -ll -r .']
   id: security testing
+  entrypoint: 'bash'
+  args: ['-c', 'pip install -r ./app/requirements.txt && bandit -l -s B101 -r .']
 - name: 'gcr.io/cloud-builders/gcloud'
+  id: function deployment
   dir: app
   args: ['functions', 'deploy', 'foobotapi',
   '--trigger-topic=foobotcron',
@@ -20,4 +21,3 @@ steps:
   # The executing function should be the only entity having read access to it.
   # Operationally, the service account needs to have read access to the secrets bucket.
   # The builder should have access to a version of it that allows testing.
-  id: function deployment
