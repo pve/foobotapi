@@ -18,10 +18,11 @@ An often used approach is to use environment variables for the deployed code. Ag
 
 In the end, access control to secrets is best based on the identity of the user of the secrets.
 ## Roles
-For API access control, we have to rely on some kind of shared secret. This implies that we have a key management,
-distribution, and access control problem.
+For API access control, we have to rely on some kind of shared secret. This implies that we have key management,
+distribution, and access control problems.
 
-Within a cloud provider ecosystem, we have _another option_ and that is based on internally trusted identities. In our example our cloud function will be executed with a specific role, which has privileges and access rights associated with it. For example, the function can write to the database, but other than that, we'd like to restrict that access. The database service trusts the other services on the function identity and its privileges.
+Within a cloud provider ecosystem, we have _another option_ and that is based on internally trusted identities. In our example our cloud function will be executed with a specific role, which has privileges and access rights associated with it. For example, the function can write to the database, but other than that, we'd like to restrict that access. The database service trusts the other services on the function identity and its privileges. We then don't need any secrets to
+manage for this trust relation.
 
 In this example we have roles for the following entities. We are using these to reduce the risk that secrets leak out.
 1. The project owner
@@ -55,3 +56,8 @@ In contrast, it is less obvious how to restrict entitlements, such as database a
 One tip: make a .gitignore rule to ignore any file with the word 'secret' in it.
 
 ---
+Related resources:
+
+https://cloud.google.com/cloud-build/docs/securing-builds/configure-access-control
+
+https://cloud.google.com/secret-manager/docs/

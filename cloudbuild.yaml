@@ -1,6 +1,6 @@
 steps:
 - name: python:3.7-slim
-  id: unittest
+  id: functional testing
   entrypoint: 'bash'
   args: ['-c', 'pip install -r ./app/requirements.txt && pytest -v .']
   env:
@@ -17,8 +17,10 @@ steps:
   '--runtime=python37',
   # --service-account XXX
   '--region=us-central1',
-  '--set-env-vars=CONFIGBUCKET=imp-iot-project.appspot.com',
   '--entry-point=oneshot']
+  env:
+    - CONFIGBUCKET=imp-iot-project.appspot.com
+
   # CONFIGBUCKET has the name of the bucket that holds the foobotsecrets.json file with the secrets
   # The executing function should be the only entity having read access to it.
   # Operationally, the service account needs to have read access to the secrets bucket.
