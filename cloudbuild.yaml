@@ -3,7 +3,8 @@ steps:
   id: unittest
   entrypoint: 'bash'
   args: ['-c', 'pip install -r ./app/requirements.txt && pytest -v .']
-  env: CONFIGBUCKET=staging.imp-iot-project.appspot.com
+  env:
+    - CONFIGBUCKET=staging.imp-iot-project.appspot.com
 - name: python:3.7-slim
   id: security testing
   entrypoint: 'bash'
