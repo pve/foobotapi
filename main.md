@@ -23,7 +23,7 @@ In AWS all this is part of Lambda.
 no hourly charge (in contrast to ....).
 - Part of the operation is to monitor production and alert on anomalies.
 - In developing and updating the system we want the feature velocity to be high:
-from the push to the source code repository to production should be as frictionless
+from the push to the source code repository to live in production should be as frictionless
 as possible. In fact, it should be automatic, including testing.
 
 See the following sections for more details:
@@ -33,9 +33,11 @@ See the following sections for more details:
 * [CI/CD pipeline](txt/cicd.md)
 * [deployment parameters and secrets](deploymentparams.md)
 * [monitoring](txt/monitoring.md)
+* [misc](misc.md)
 
 ## Alternative architectures
-* You could run code like this on a server. In fact, an earlier version of this ran on a Raspberry Pi. This implies an
+* You could run code like this on a server. In fact, an earlier version of this ran on a Raspberry Pi.
+This implies an
 operational responsibility for that machine and all the software that runs
 on it. It remains to be seen if this is more or less work than running it on GCP.
 In terms of scalability however, the server approach is either vastly
@@ -43,6 +45,9 @@ overprovisioned or underprovisioned. Both are a waste.
 * There may be SaaS/PaaS level solutions to do this API integration.
 Zapier and IFTTT come to mind. However, in general these cannot be relied upon
 to support the specific API services that you need.
+Beyond that, their cost model is based on number of invocations.
+The example project runs one every 10 minutes, and will burn through the paid
+starter plan monthly allotment in about 20 days.  
 * Within GCP, we could consider logging our API JSON files into StackDriver, and then use its functionality to create our reports.
 However, we'd need to
 figure out how long term data retention works in StackDriver.

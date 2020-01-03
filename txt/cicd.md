@@ -10,9 +10,9 @@ The objective of this project is to demonstrate how functional and security test
 In line with the rest of this project we are using the GCP services, in particular [Cloud Build](https://cloud.google.com/cloud-build/docs/build-config).
 
 Cloud Build executes a build script, which is typically maintained in your software repository. The script can be started manually, but the more interesting
-case is to trigger the build whenever a new version of the software is committed to the source code repository.
+case is to trigger the build automatically whenever a new version of the software is committed to the source code repository.
 
-It turns out that setting up this trigger is slightly easier from the Google Cloud Source Repository.
+It turns out that setting up this trigger is slightly easier from the Google Cloud Source Repository, than from Github.
 
 We also want to be notified of build progress, e.g. through Slack. While StackdDriver
 does give us those features, Cloud Build surprisingly does not have that. Cloud Build just
@@ -25,7 +25,7 @@ In this project there are three build steps:
 3. pushing the code to the production environment.
 
 Step one in the `cloudbuild.yaml` file runs a small container to execute the
-tests. Note the use of the `CONFIGBUCKET` to allow the test to run in
+tests. Note the use of the `CONFIGBUCKET` to make the test run in
 an acceptance environment. This points to a GCP Storage bucket that holds
 configuration files, including API secrets.
 ```
@@ -65,7 +65,11 @@ commands.
   '--runtime=python37',
   # --service-account XXX
   '--region=us-central1',
-  '--set-env-vars=CONFIGBUCKET=imp-iot-project.appspot.com',
   '--entry-point=oneshot']
+  env:
+    - CONFIGBUCKET=imp-iot-project.appspot.com
 ```
-In this step `gcr.io` stands for the 'Google Container Registry'. The arguments are described in more detail here.
+In this step `gcr.io` stands for the 'Google Container Registry', which hosts the container that runs the GCP API. The arguments of `gcloud` are [described in more detail here](https://cloud.google.com/functions/docs/deploying/filesystem) (note that the local machine this page talks about is now actually the container ran by the build step).
+
+Again, we have an interesting set of roles and access rights
+to deal with here. In addition to the rights of the running software, we have different access rights for the builder, i.e. the process running `gcloud`.

@@ -56,6 +56,5 @@ http://support.initialstate.com/knowledgebase/articles/590091-how-to-stream-even
 ## Integration testing
 Some tests require other services and systems, the most obvious case here being the Foobot service.
 
-Running the actual tests requires configuration information. This will be different between local testing and testing in the continuous delivery pipeline (see [deployment parameters and secrets](deploymentparams.md)).
-
-(pytest test sequencing? )
+Running the actual tests requires configuration information.
+This will be different between local testing and testing in the continuous delivery pipeline (see [deployment parameters and secrets](deploymentparams.md)).
