@@ -63,13 +63,13 @@ commands.
   args: ['functions', 'deploy', 'foobotapi',
   '--trigger-topic=foobotcron',
   '--runtime=python37',
-  # --service-account XXX
+  '--service-account=foobotfunction@imp-iot-project.iam.gserviceaccount.com',
   '--region=us-central1',
   '--entry-point=oneshot']
   env:
     - CONFIGBUCKET=imp-iot-project.appspot.com
 ```
-In this step `gcr.io` stands for the 'Google Container Registry', which hosts the container that runs the GCP API. The arguments of `gcloud` are [described in more detail here](https://cloud.google.com/functions/docs/deploying/filesystem) (note that the local machine this page talks about is now actually the container ran by the build step).
+In this step `gcr.io` stands for the 'Google Container Registry', which hosts the container that runs the GCP API. The arguments of `gcloud` are [described in more detail here](https://cloud.google.com/functions/docs/deploying/filesystem) (note that the local machine from which the code is deployed is now actually the container ran by Cloud Build in this build step, hence the `app` directory).
 
-Again, we have an interesting set of roles and access rights
-to deal with here. In addition to the rights of the running software, we have different access rights for the builder, i.e. the process running `gcloud`.
+(Again, we have an interesting set of roles and access rights
+to deal with here. In addition to the rights of the running software, we have different access rights for the builder, i.e. the process running `gcloud`.)

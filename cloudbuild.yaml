@@ -15,7 +15,7 @@ steps:
   args: ['functions', 'deploy', 'foobotapi',
   '--trigger-topic=foobotcron',
   '--runtime=python37',
-  # --service-account XXX
+  '--service-account=foobotfunction@imp-iot-project.iam.gserviceaccount.com',
   '--region=us-central1',
   '--entry-point=oneshot']
   env:

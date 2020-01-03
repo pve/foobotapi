@@ -1,8 +1,11 @@
 # Secrets and credentials
-Deploying the software to production requires configuration. This includes for example the name of the database to store
+<!---
+-->
+Deploying the software to production requires configuration.
+This configuration includes for example the name of the database to store
 results in, URL endpoints of APIs, and more specifically,
 API secrets.
-These secrets are the key (pun intended) unlocking access to all the data. In a cloud world,
+These secrets are the key (pun intended) for unlocking access to all the data. In a cloud world,
 leaking secrets is one of the significant ways in which data
 can leak.
 
@@ -17,6 +20,7 @@ A major complicating requirement is continuous delivery, as this requires these 
 An often used approach is to use environment variables for the deployed code. Again, limiting access to the scripts where these are stored is hard.
 
 In the end, access control to secrets is best based on the identity of the user of the secrets.
+
 ## Roles and identities can control access to secrets
 For API access control, we have to rely on some kind of shared secret. This implies that we have key management,
 distribution, and access control problems.
@@ -49,7 +53,11 @@ In this example we have roles for the following entities. We are using these to 
 1. The project owner
 2. The executing function
 3. The code deployment role
-4.
+For more info on the difference: https://cloud.google.com/functions/docs/securing/
+<!---
+Function identity: https://cloud.google.com/functions/docs/securing/function-identity
+-->
+
 
 Each project has one or more owners, and their identities
 are likely to be natural persons having an @gmail.com address or so.
@@ -70,15 +78,16 @@ all of this scattered over the documentation of the API.
 
 We want service accounts to have minimal roles. `12345@cloudbuild.gserviceaccount.com` has to have the rights required to run the tests.
 This has the following roles (as part of the project IAM policy):
+<!---
+gcloud projects get-iam-policy imp-iot-project  --flatten="bindings[].members" --format='table(bindings.role)' --filter="bindings.members:528
+747726418@cloudbuild.gserviceaccount.com"
+-->
 ```
 ROLE
-roles/bigquery.admin
 roles/cloudbuild.builds.builder
 roles/cloudfunctions.developer
 roles/iam.serviceAccountUser
 ```
-? could get rid of bigquery.admin....
-
 we want the executing function to run under a service account that can access
 the specific object.
 
@@ -86,15 +95,35 @@ build steps can have their own roles.
 
 
 ## Permissions granularity
-In the Google Cloud Platform the project is the elementary unit for defining roles and entitlements.
-An account can have a role in many projects, and those roles could be different. This is in contrast to AWS where entitlements, by default, are for the entire account.
+In the Google Cloud Platform the project is the elementary unit for defining
+roles and entitlements.
+An account can have a role in many projects, and those
+roles could be different by project.
+This is why it is called a 'project IAM
+policy'.
+This is in contrast to AWS where entitlements, by default, are for the
+entire account.
 
-Example permissions for this example....
+As an example, the standard role `roles/storage.objectViewer` has the permissions
+```
+resourcemanager.projects.get
+resourcemanager.projects.list
+storage.objects.get
+storage.objects.list
+```
+If you would leave out the `storage.objects.get` permission, the content of an
+object would not be readable.
+
+Permissions (roles) can also be granted on a resource level, such as a specific
+bucket.
 
 
-In contrast, it is less obvious how to restrict entitlements, such as database access, to a specific resource, such as a named database.   
+?In contrast, it is less obvious how to restrict entitlements, such as database access, to a specific resource, such as a named database.   
 The latter actually requires a bucket level policy.
 `gsutil iam get gs://imp-iot-project.appspot.com`
+
+Question: with resources versus service account policies. Do you need both or
+one of them?
 
 Note: the GCP IAM console tells you which permissions within a
 role are not being used, and can be removed or revoked.
