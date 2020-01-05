@@ -10,6 +10,9 @@ next level: generate the project and its contents, including the logging.
 -->
 
 # Overall architecture
+One of the objectives of this project is to be minimalistic: don't introduce
+components just for convenience, only because they usefully make a point.
+
 The overall architecture of the solution has the following components:
 - At the core of the architecture is a 'serverless' function that regularly pulls data from the
 Foobot API and sends it to an AdaFruit dashboard for viewing and a BigQuery database
@@ -20,16 +23,17 @@ through a specific service (cron) that is related to the Google App Engine servi
 and communicates through PubSub, the GCP messaging service.
 In AWS all this is part of Lambda.
 - BigQuery data storage was selected because its cost is proportional to usage, and there is
-no hourly charge (in contrast to ....).
+no hourly charge (in contrast to Google's BigTable).
 - Part of the operation is to monitor production and alert on anomalies.
 - In developing and updating the system we want the feature velocity to be high:
 from the push to the source code repository to live in production should be as frictionless
 as possible. In fact, it should be automatic, including testing.
 
 See the following sections for more details:
-* [API and testing](txt/apiandtesting.md)
+* [APIs](txt/apis.md)
 * [triggering the events](txt/cron.md)
 * [tooling](txt/tooling.md)
+* [testing](txt/testing.md)
 * [CI/CD pipeline](txt/cicd.md)
 * [deployment parameters and secrets](deploymentparams.md)
 * [monitoring](txt/monitoring.md)

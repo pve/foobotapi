@@ -48,6 +48,7 @@ In my opinion, you should embrace security checks in any DevOps pipeline. While 
 ## Other tools
 Included in the ecosystem are more tools, such as logging tools, builder tools, and so on. These are covered in some of the other sections in the overview of this project.
 
+Continue to [testing](testing.md).
 <!---
 https://cloud.google.com/error-reporting/docs/setup/python
 

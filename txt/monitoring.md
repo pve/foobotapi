@@ -1,7 +1,7 @@
 # Monitoring
 In any IT system, there is a lot of stuff that can go wrong.
 Ideally, the process we are implementing now, data collection, is a fire-and-forget activity. And we don't want
-it to fail. 
+it to fail.
 So how to we ensure that? In our case, there are no users that complain when the system is down.
 We will just be missing data. And it happens, so we want to detect that.
 
@@ -53,3 +53,5 @@ We do need some visibility into that.
 Using Stackdriver: https://medium.com/@duhroach/getting-google-cloud-functions-times-in-stackdriver-61ec1b33a92
 
 Using tracing on Python functions. https://medium.com/faun/tracing-python-cloud-functions-a17545586359
+
+Continue to [miscelaneous topics](misc.md)

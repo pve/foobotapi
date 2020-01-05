@@ -36,7 +36,7 @@ In an environment variable we'll tell the deployed function what the name of the
 Only the executing function should have read access to its contents.
 We do this by giving it a role that allows it to access the secrets file.
 
-With a bit of luck we can actually restrict the project owner (or whoever is impersonating them) from accessing these secrets. And the deployment role definitely does not need secrets access.
+With a bit of luck we can actually restrict the project owner (or whoever is impersonating them) from accessing these secrets. And the deployment role definitely does not need production secrets access.
 
 (graphic required here)
 
@@ -71,7 +71,7 @@ For example the Cloud Function should be able to write to
 our database, but should not be able to create projects.
 That is why, during execution, we want the Cloud function
 to assume a role or roles that will give it more limited capabilities.
-This is why there are 'service accounts'.
+This one of the reasons why there are 'service accounts'.
 
 Service accounts each have many roles. Each role can have many permissions. The GCP documentation has the details on
 all of this scattered over the documentation of the API.
@@ -91,7 +91,8 @@ roles/iam.serviceAccountUser
 we want the executing function to run under a service account that can access
 the specific object.
 
-build steps can have their own roles.
+build steps can have their own roles. (need to have: so cloudbuild does not
+  need their permissions. )
 
 
 ## Permissions granularity
@@ -129,6 +130,8 @@ Note: the GCP IAM console tells you which permissions within a
 role are not being used, and can be removed or revoked.
 
 One tip: make a .gitignore rule to ignore any file with the word 'secret' in it.
+
+Continue to [monitoring](txt/monitoring.md)
 
 ---
 Related resources:

@@ -16,7 +16,7 @@ It turns out that setting up this trigger is slightly easier from the Google Clo
 
 We also want to be notified of build progress, e.g. through Slack. While StackdDriver
 does give us those features, Cloud Build surprisingly does not have that. Cloud Build just
-pushes a message to a PubSub topic. It takes just a [specific Google Cloud Function](https://cloud.google.com/cloud-build/docs/configure-third-party-notifications) to
+pushes a message to a PubSub topic. It takes just another [specific Google Cloud Function](https://cloud.google.com/cloud-build/docs/configure-third-party-notifications) to
 push that to Slack. Managing that function can be done in a similar way as we are doing in this project, which makes this a bit recursive.
 
 In this project there are three build steps:
@@ -25,7 +25,7 @@ In this project there are three build steps:
 3. pushing the code to the production environment.
 
 Step one in the `cloudbuild.yaml` file runs a small container to execute the
-tests. Note the use of the `CONFIGBUCKET` to make the test run in
+tests (see below). Note the use of the `CONFIGBUCKET` to make the test run in
 an acceptance environment. This points to a GCP Storage bucket that holds
 configuration files, including API secrets.
 ```
@@ -73,3 +73,6 @@ In this step `gcr.io` stands for the 'Google Container Registry', which hosts th
 
 (Again, we have an interesting set of roles and access rights
 to deal with here. In addition to the rights of the running software, we have different access rights for the builder, i.e. the process running `gcloud`.)
+
+Continue to [deployment parameters](deploy) for more in-depth
+dicussion on XXX

@@ -26,3 +26,5 @@ On larger systems we do need something to prevent an avalanche
 like this, because we don't want incidents
 like those to saturate downstream services. Search for 'circuit breaker pattern'
 if you want to look deeper into this.
+
+Continue to [tooling](txt/tooling.md)
