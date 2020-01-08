@@ -8,6 +8,7 @@ the most relevant security control: https://cloud.google.com/functions/docs/secu
 
 minimalistic
 
+With the Gcloud API creating a project is simple. With
 ```
 gcloud projects create PROJECT_ID --organization=ORGANIZATION_ID
 ```

@@ -48,6 +48,9 @@ In my opinion, you should embrace security checks in any DevOps pipeline. While 
 ## Other tools
 Included in the ecosystem are more tools, such as logging tools, builder tools, and so on. These are covered in some of the other sections in the overview of this project.
 
+Manipulating GCP resources is conveniently done through command line tools such as `gcloud`. This can be locally installed, or run through
+the cloud shell on the GCP web console. Here is a [cheatsheet](https://gist.github.com/pydevops/cffbd3c694d599c6ca18342d3625af97) for `gcloud` and other commands.
+
 Continue to [testing](testing.md).
 <!---
 https://cloud.google.com/error-reporting/docs/setup/python

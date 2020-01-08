@@ -54,4 +54,4 @@ Using Stackdriver: https://medium.com/@duhroach/getting-google-cloud-functions-t
 
 Using tracing on Python functions. https://medium.com/faun/tracing-python-cloud-functions-a17545586359
 
-Continue to [miscelaneous topics](misc.md)
+Continue to [miscellaneous topics](misc.md)

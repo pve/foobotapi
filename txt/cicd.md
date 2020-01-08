@@ -15,7 +15,7 @@ case is to trigger the build automatically whenever a new version of the softwar
 It turns out that setting up this trigger is slightly easier from the Google Cloud Source Repository, than from Github.
 
 We also want to be notified of build progress, e.g. through Slack. While StackdDriver
-does give us those features, Cloud Build surprisingly does not have that. Cloud Build just
+does give us those features, Cloud Build surprisingly does not have that. Cloud Build only
 pushes a message to a PubSub topic. It takes just another [specific Google Cloud Function](https://cloud.google.com/cloud-build/docs/configure-third-party-notifications) to
 push that to Slack. Managing that function can be done in a similar way as we are doing in this project, which makes this a bit recursive.
 
