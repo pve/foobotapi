@@ -6,6 +6,7 @@ from main import *
 
 def test_secrets ():
     assert fooboturl.startswith("https://")
+    assert afurl.startswith("https://")
     assert foobotkey != 'novalidkey'
     assert dataset_id != 'novalidkey'
 
@@ -18,9 +19,9 @@ def test_get ():
     assert "datapoints" in response.text
     assert "sensors" in response.text
 
-def test_af (): # adafruit
+def test_af (): # adafruit, also fails if posting to too many feeds
     data = { "feeds": [ { "key": "a", "value": "42" }, { "key": "b", "value": "8" }]}
-    response = requests.post(afurl + "/" + afuser + "/groups/test/data", headers=afheaders, json=data)
+    response = requests.get(afurl + "/" + afuser + "/feeds/foobot.tmp", headers=afheaders, json=data)
     assert response.ok
 
 def test_loggly():
