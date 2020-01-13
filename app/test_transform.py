@@ -3,6 +3,7 @@ import os, requests, json, datetime, logging
 from settings import *
 from transform import *
 
+#co2 and voc have a linear relationship, co2 is kind of fake
 # sample output from foobot api (already a dict)
 samplefoobot = {"uuid":"2701466D278044A0","start":1571513969,"end":1571513969,"sensors":["time","pm","tmp","hum","co2","voc","allpollu"],"units":["s","ugm3","C","pc","ppm","ppb","%"],"datapoints":[[1571513969,12.360016,17.733,63.555,1309,362,42.52668]]}
 

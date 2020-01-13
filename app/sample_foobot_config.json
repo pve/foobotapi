@@ -2,8 +2,8 @@
   "table_id": "sensordata",
   "fooboturl" : "https://api-eu-west-1.foobot.io/v2/device/2701466D278044A0/datapoint/0/last/0/",
   "foobotkey": "REPLACE",
-  "isurl": "https://groker.initialstate.com/api/events",
-  "isaccesskey" : "REPLACE",
-  "isbucketkey" : "REPLACE",
+  "adafruitkey" : "REPLACE",
+  "adafruiturl": "https://io.adafruit.com/api/v2",
+  "adafruituser": "REPLACE"
   "logglykey" : "REPLACE"
 }

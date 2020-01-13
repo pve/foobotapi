@@ -2,7 +2,8 @@
 For API access control, we generally have to rely on some kind of shared secret. This implies that we have key management,
 distribution, and access control problems.
 
-Within a cloud provider ecosystem, we have _another option_, which is based on internally trusted identities. In our example our cloud function will be executed with a specific role/identity, which has privileges and access rights associated with it.
+Within a cloud provider ecosystem, we have _another option_, which is based on internally trusted identities.
+In our example, our cloud function will be executed with a specific role/identity, which has privileges and access rights associated with it.
 For example, the function can write to the database, but other than that, we'd like to restrict that access. The database service trusts the other services on the function identity and its privileges. We then don't need any secrets such as API keys to
 manage for this trust relation.
 
@@ -10,7 +11,7 @@ The essence of the approach taken here is as follows.
 We store the secrets and configuration in a file (object) called `foobotsecrets.json` in Google Cloud Storage.
 This object will not be publicly accessible.
 
-In an environment variable we'll tell the deployed function what the location of the configuration file is.
+In an environment variable, we'll tell the deployed function what the location of the configuration file is.
 Only the executing function should have read access to its contents.
 We do this by giving it a role that allows it to access the secrets file.
 The code in [settings.py](app/settings.py) looks like this:
@@ -20,7 +21,7 @@ secrets = getsecrets(config, "foobotsecrets.json")
 ```
 It is run with a service account that will give it access to that data object.
 
-With a bit of luck we can actually restrict the project owner (or whoever is impersonating them) from accessing these secrets.
+With a bit of luck, we can actually restrict the project owner (or whoever is impersonating them) from accessing these secrets.
 And the deployment role definitely does not need production secrets access.
 (It might be necessary to have a different dedicated project to hold all the secrets)
 
