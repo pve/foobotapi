@@ -10,7 +10,7 @@ In the readme, the audience is those who wish to
 figure out if they should read any further
 -->
 
-The second objective of this code is to demonstrate cloud native development. In this case we are working with 'serverless' functions, including continuous delivery, and
+The second objective of this code is to demonstrate **cloud native development**. In this case we are working with '_serverless_' functions, including continuous delivery, and
 this time we are focussing on the Google code ecosystem. More tutorial explanation is in [here](main.md), where I dissect the full approach theme by theme, topic by topic.
 
 Technologies and techniques used:
