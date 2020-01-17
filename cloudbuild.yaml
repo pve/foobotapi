@@ -14,6 +14,7 @@ steps:
   dir: app
   args: ['functions', 'deploy', 'foobotapi',
   '--trigger-topic=foobotcron',
+  '--memory=128MB',
   '--runtime=python37',
   '--service-account=foobotfunction@imp-iot-project.iam.gserviceaccount.com',
   '--region=us-central1',
