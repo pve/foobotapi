@@ -40,6 +40,7 @@ This project has three types of tests
 - tests for data conversion
 - tests related to reading and parsing configuration options
 - tests related to the external APIs
+
 In a development workflow, you want to run the first two types first.
 In the deployment workflow, that does not matter much: they all need to pass.
 

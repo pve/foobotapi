@@ -27,6 +27,7 @@ Violates when: Any bigquery.googleapis.com/storage/uploaded_row_count stream is 
 As we are pulling the information out of the API once every 10 minutes, our
 update frequency should be around 1/(60*10) per second, or about 0.0017. Significant
 deviations of this are an indicator that we are not getting the value we want.
+In Google's SRE (Site Reliability Engineering) this target update frequency is called an SLO (Service Level Objective).
 
 It is tempting to try to measure correct functioning, e.g. as the absence of errors.
 However, we have seen that there can be many function invocation errors that go undetected in that way. That is, they falsely claim to be ok.
@@ -46,6 +47,10 @@ The metric logging/user/FoobotOK for imp-iot-project Cloud Function labels {func
 This we can then sent to Slack.
 ![Image](SlackStackdriver.png)
 I have noticed though that these metrics are not always available, leading to false alerts. Finally, with all GCP logging, there are retention limits that you need to think about. For example, logs will be retained between 30 and 400 days depending on the type.
+## Monitor for analysis
+While in this project I have only implemented alerts on two metrics, there are many log entries and metrics that can be used to diagnose a problem once such an alert fires.
+It is important to make sure that your logging helps you figure out problems.
+A great example of that is anything that is returned from a failed API call.
 
 ## Performance Monitoring
 Our code is not particularly resource intensive, nor is the result really time sensitive.

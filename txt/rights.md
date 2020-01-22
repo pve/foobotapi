@@ -84,14 +84,15 @@ object would not be readable.
 
 Permissions (roles) can also be granted on a resource level, such as a specific
 bucket.
-These are 'resource policies'
+These are 'resource policies'.
 
+Warning: learning debris ahead..
 
 ?In contrast, it is less obvious how to restrict entitlements, such as database access, to a specific resource, such as a named database.   
 The latter actually requires a bucket level policy.
 Listing roles and members that have access to a resource looks like this:
 `gsutil iam get gs://imp-iot-project.appspot.com`.
-Note that there seems to be no equivalent way to list all permissions
+I cannot currenlty find an equivalent way to list all permissions
 on a resource, as permissions are always linked through a role.
 
 Question: with resources versus service account policies. Do you need both or
@@ -113,6 +114,8 @@ Continue to [monitoring](txt/monitoring.md)
 
 ---
 Related resources:
+New product announcement: Google Secrets Manager.
+https://cloud.google.com/blog/products/identity-security/introducing-google-clouds-secret-manager
 
 https://cloud.google.com/cloud-build/docs/securing-builds/configure-access-control
 
