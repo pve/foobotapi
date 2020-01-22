@@ -1,4 +1,4 @@
-# Using the Foobot api
+# Using the Foobot api with Google Cloud Functions and CD
 The Foobot is an indoor air pollution sensor device.
 Io.Adafruit is a dashboard for IOT.
 

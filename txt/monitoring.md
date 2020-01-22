@@ -1,5 +1,7 @@
 # Monitoring
 In any IT system, there is a lot of stuff that can go wrong.
+Machines crash, functions fail, networks break down,
+configurations change, deployments are botched.
 Ideally, the process we are implementing now, data collection, is a fire-and-forget activity. And we don't want
 it to fail.
 So how to we ensure that? In our case, there are no users that complain when the system is down.
@@ -43,6 +45,8 @@ The metric logging/user/FoobotOK for imp-iot-project Cloud Function labels {func
 ```
 This we can then sent to Slack.
 ![Image](SlackStackdriver.png)
+I have noticed though that these metrics are not always available, leading to false alerts. Finally, with all GCP logging, there are retention limits that you need to think about. For example, logs will be retained between 30 and 400 days depending on the type.
+
 ## Performance Monitoring
 Our code is not particularly resource intensive, nor is the result really time sensitive.
 Still, it is dependent on external services that can have performance or
