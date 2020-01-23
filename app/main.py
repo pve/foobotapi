@@ -12,13 +12,13 @@ table = client.get_table(table_ref)  # API request
 
 def POSTRequestSync(url, headers, data):
   response = requests.post(url, headers=headers, data=data)
-  if response.status_code != 200:
+  if response.status_code != requests.codes.ok:
 	  logging.error(response.text)
   return response
 
 def consumeGETRequestSync(url, headers):
   response = requests.get(url, headers=headers)
-  if response.status_code != 200:
+  if response.status_code != requests.codes.ok:
 	  logging.error(response.text)
   # check if we really get an answer, logging.error instead
   return(response)
@@ -31,7 +31,7 @@ def oneshot(event, context):
 	   outgoing = transform2adafruit(incoming.text)
 #	   print(outgoing)
 	   response = POSTRequestSync(afurl + "/" + afuser + "/groups/foobot/data",
-	   		headers=afheaders, json=outgoing)
+	   		headers=afheaders, data=json.dumps(outgoing))
 #	   print(response.text)
 	   t2 = time.time()
 	   sampleinput1 = u'{"uuid":"2701466D278044A0","start":1490861042,"end":1490861042,"sensors":["pm","co2"],"units":["ugm3","ppm"],"datapoints":[[2,98]]}' #string, input to json.loads
