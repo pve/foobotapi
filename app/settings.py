@@ -23,4 +23,4 @@ afurl = getconfigitem('adafruiturl', secrets)
 afuser = getconfigitem('adafruituser', secrets)
 
 fooheaders = {"Accept": "application/json", "X-API-KEY-TOKEN": foobotkey }
-afheaders = { "X-AIO-Key": afkey }
+afheaders = { "X-AIO-Key": afkey, "Content-Type": "application/json" }
