@@ -10,7 +10,7 @@ This architectural choice has some security implications.
 Data in motion protection is provided through the use of HTTPS.
 Access control is through an API secret key that is provisioned from the respective services.
 
-In this implementation I elected to not use any wrapper libraries in order to
+In this implementation I elected to not use any wrapper libraries for these APIs in order to
 simplify the code. Instead we work directly with URLs that represent the
 API endpoints.
 The Python requests library is quite adequate in handling the lower level stuff. Getting the data from Foobot is simply a single HTTP GET request with an appropriate header and URL, and will return a JSON reply.
