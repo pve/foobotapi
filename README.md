@@ -4,7 +4,7 @@ Io.Adafruit is a dashboard for IOT.
 
 ![foobot picture](/txt/foobotpicture.jpg)
 
-This code pulls [Foobot](http://foobot.io) data from its API and sends it to [io.adafruit.com](http://io.adafruit.com), and a Google BigQuery database.
+This code pulls [Foobot](http://foobot.io) data from its API and sends it to [io.adafruit.com](http://io.adafruit.com) and a Google BigQuery database. As the picture suggests, this is in live production.  
 
 <!---
 your comment goes here
