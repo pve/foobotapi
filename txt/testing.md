@@ -15,7 +15,7 @@ def test_transform2adafruit():
 Then write the function `transform2adafruit()`, test it and fix any errors.
 Rinse and repeat until ready.
 
-See the [tooling](txt/tooling.md) section for more details
+See the [tooling](tooling.md) section for more details
 on the `pytest` tool.
 
 Conventions around timestamps:
