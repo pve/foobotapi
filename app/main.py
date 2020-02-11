@@ -34,7 +34,6 @@ def oneshot(event, context):
 	   		headers=afheaders, data=json.dumps(outgoing))
 #	   print(response.text)
 	   t2 = time.time()
-	   sampleinput1 = u'{"uuid":"2701466D278044A0","start":1490861042,"end":1490861042,"sensors":["pm","co2"],"units":["ugm3","ppm"],"datapoints":[[2,98]]}' #string, input to json.loads
 	   bqin = json.loads(incoming.text)["datapoints"][0]
 	   bqin[0] = datetime.datetime.utcfromtimestamp(bqin[0]).strftime('%Y-%m-%d %H:%M:%S')
 	   rows_to_insert = [tuple(bqin)]

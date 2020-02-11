@@ -14,7 +14,6 @@ def test_transform ():
     assert(y == r)
 
 sampleinput1 = u'{"uuid":"2701466D278044A0","start":1490861042,"end":1490861042,"sensors":["pm","co2"],"units":["ugm3","ppm"],"datapoints":[[2,100]]}' #string, input to json.loads
-#payload2xively = {'datastreams': [{'current_value': 2, 'id': 'pm'}, {'current_value': 100, 'id': 'co2'}]}  #pyhon object
 
 sampleadafruitin = {"uuid":"2701466D278044A0","start":1571513969,"end":1571513969,"sensors":["a","b"],"units":["s","ugm3"],"datapoints":[[42,8]]}
 sampleadafruit = {"feeds": [{"key": "a", "value": "42"}, {"key": "b", "value": "8"}]}

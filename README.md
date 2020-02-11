@@ -30,3 +30,5 @@ You should be able to replicate this setup yourself, if you have accounts for
 these services.
 
 Continue reading [here](main.md).
+
+By the way, comments, issues and pull requests welcome.

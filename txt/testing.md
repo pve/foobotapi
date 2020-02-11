@@ -4,7 +4,7 @@ This is the stuff that can be written down in a very concise way in Python, than
 Getting it right is harder. And that is where Test Driven Design comes in.
 
 The workflow is easy. Define a test like the following, including the sample data that
-was shown to work manually with the API.
+was shown to work manually with the APIs.
 ```
 def test_transform2adafruit():
     x = sampleinput
@@ -22,8 +22,9 @@ Conventions around timestamps:
 * `"created_at": "2019-12-23T21:46:23Z",`
 is what you can stick in and get back from adafruit.
 
-* The foobot API gives back a 'time' sensor value in epoch format, e.g. `1490861042`
+* The Foobot API gives back a 'time' sensor value in epoch format, e.g. `1490861042`
 
+The actual transformations happen in [transform.py](../app/transform.py). Timestamps not handled yet.
 
 Inspiration for some code:
 http://stackoverflow.com/questions/17301938/making-a-request-to-a-restful-api-using-python

@@ -1,15 +1,15 @@
 import os, requests, json, datetime
 
 def transformdata(datain):
-# foobot to initial state
+# foobot to initial state, no longer used
   ans = json.loads(datain)
   z= zip(ans["sensors"], ans["datapoints"][0])
   data = dict(zip(ans["sensors"], ans["datapoints"][0]))
-  # nu nog de timestamp
+  # todo timestamp
   return data
 
 def transform2adafruit(datain):
-# foobot to adafruit
+# foobot to adafruit, not handling the data formats yet
   ans = json.loads(datain)
   sensors = ans["sensors"]
   dp = ans["datapoints"][0]
