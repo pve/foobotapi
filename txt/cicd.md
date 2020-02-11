@@ -74,5 +74,5 @@ In this step `gcr.io` stands for the 'Google Container Registry', which hosts th
 (Again, we have an interesting set of roles and access rights
 to deal with here. In addition to the rights of the running software, we have different access rights for the builder, i.e. the process running `gcloud`.)
 
-Continue to [deployment parameters](deploy) for more in-depth
+Continue to [deployment parameters](deploymentparams.md) for more in-depth
 dicussion on XXX

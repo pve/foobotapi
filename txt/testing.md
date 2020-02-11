@@ -18,11 +18,11 @@ Rinse and repeat until ready.
 See the [tooling](txt/tooling.md) section for more details
 on the `pytest` tool.
 
-Conventions around timestamps.
-`"created_at": "2019-12-23T21:46:23Z",`
-is what you can stick in and get back from adafruit
+Conventions around timestamps:
+* `"created_at": "2019-12-23T21:46:23Z",`
+is what you can stick in and get back from adafruit.
 
-The foobot API gives back a 'time' sensor value in epoch format, e.g. `1490861042`
+* The foobot API gives back a 'time' sensor value in epoch format, e.g. `1490861042`
 
 
 Inspiration for some code:
@@ -36,4 +36,4 @@ Running the actual tests requires configuration information.
 Next up we will discuss continuous delivery.
 Right now, understand that the testing configuration information
 will be different between local testing and testing in the continuous delivery pipeline.
-Continue to [continuous delivery](txt/cicd.md).
+Continue to [continuous delivery](cicd.md).

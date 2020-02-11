@@ -60,8 +60,9 @@ We could potentially make a custom role that is even more strict.
 Note: to add project wide storage permissions to a service account
 is done in Console IAM, for bucket level permissions you have to do that
 at Console Storage.
-
+```
 gsutil iam ch -d group:readers@example.com:legacyBucketReader \
                   group:viewers@example.com:objectViewer gs://staging.imp-iot-project.appspot.com
 
 gsutil iam ch -d user:john.doe@example.com gs://staging.imp-iot-project.appspot.com
+```

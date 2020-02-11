@@ -110,7 +110,7 @@ role are not being used, and can be removed or revoked.
 
 One tip: make a .gitignore rule to ignore any file with the word 'secret' or 'private' in it.
 
-Continue to [monitoring](txt/monitoring.md)
+Continue to [monitoring](monitoring.md)
 
 ---
 Related resources:

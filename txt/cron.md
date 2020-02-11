@@ -1,5 +1,5 @@
 # Triggering the function
-The function is triggered by a cron type of function, through a message on a PubSub topic.
+The function is triggered every 5 minutes by a cron type of function, through a message on a PubSub topic.
 The message itself is empty.
 
 The PubSub message will then trigger the Google Cloud function.
@@ -27,4 +27,4 @@ like this, because we don't want incidents
 like those to saturate downstream services. Search for 'circuit breaker pattern'
 if you want to look deeper into this.
 
-Continue to [tooling](txt/tooling.md)
+Continue to [tooling](tooling.md)
