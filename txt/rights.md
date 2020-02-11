@@ -14,7 +14,7 @@ This object will not be publicly accessible.
 In an environment variable, we'll tell the deployed function what the location of the configuration file is.
 Only the executing function should have read access to its contents.
 We do this by giving it a role that allows it to access the secrets file.
-The code in [settings.py](app/settings.py) looks like this:
+The code in [settings.py](../app/settings.py) looks like this:
 ```
 config = os.environ.get('CONFIGBUCKET') # supposedly a GS bucket.
 secrets = getsecrets(config, "foobotsecrets.json")
@@ -36,7 +36,7 @@ In this example we have the following entities, each with different access right
 For more info on the difference: https://cloud.google.com/functions/docs/securing/
 <!---
 -->
-Continue to [service accounts](txt/serviceaccount.md).
+Continue to [service accounts](serviceaccount.md).
 
 ## permissions and roles
 

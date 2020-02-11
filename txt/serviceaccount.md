@@ -24,7 +24,7 @@ A little trickier is what happens when a user (manually) runs a program or comma
 By default Linux gives that program the same rights as the user executing it. However, if the 'set user id' bit is set on the program, permissions are now based on the _owner_ of the program, rather than the _user_ of the program.
 That means that if the owner of the program can read a file, the program can read that file too, even if the user executing the program cannot.
 
-Service accounts can be seen as a generalisation of that. In a cloud world it is typically not a user that runs a program, but it is another program, often through an API, and not necessarily initiated from with the same provider.
+Service accounts can be seen as a generalisation of that. In a cloud world it is typically not a user that runs a program, but it is another program, often through an API, and not necessarily initiated from within the same provider.
 What are the access rights of that program?
 
 In Linux terms this would be like specifying _another_ user under whose identity the program will run: a user that is neither the executing user nor the owner of the program.
