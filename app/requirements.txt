@@ -3,3 +3,5 @@ pytest
 google-cloud-storage
 google-cloud-bigquery
 bandit
+
+rsa>=4.1 # not directly required, pinned by Snyk to avoid a vulnerability
