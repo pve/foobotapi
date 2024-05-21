@@ -1,4 +1,4 @@
-Requests>=2.21.0
+Requests>=2.32.0
 pytest
 google-cloud-storage
 google-cloud-bigquery
